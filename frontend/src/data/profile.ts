@@ -1,4 +1,4 @@
-import type { CodingProfile, Social } from './types';
+import type { Social } from './types';
 
 // Verified from repository files. Phone is private by owner decision —
 // contact runs on email + professional profiles only.
@@ -15,15 +15,10 @@ export const profile = {
 };
 
 export const socials: Social[] = [
-  { id: 'github', label: 'GitHub', url: 'https://github.com/Abhijeet83193', verified: true },
-  { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/abhijeet-dhokne-8644a32b3/', verified: true },
-  { id: 'x', label: 'X', url: 'https://x.com/Abhijeet_Dhokne', verified: true },
-];
-
-export const codingProfiles: CodingProfile[] = [
-  { id: 'leetcode', label: 'LeetCode', username: 'Avdx23e', url: 'https://leetcode.com/u/Avdx23e/' },
-  { id: 'codechef', label: 'CodeChef', username: 'abhi_14avd', url: 'https://www.codechef.com/users/abhi_14avd' },
-  { id: 'codeforces', label: 'Codeforces', username: 'abhi_14avd', url: 'https://codeforces.com/profile/abhi_14avd' },
+  { id: 'github', label: 'GitHub', url: 'https://github.com/AbhijeetDhokne', verified: true },
+  { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/abhijeetdhokne/', verified: true },
+  { id: 'x', label: 'X', url: 'https://x.com/_AbhijeetDhokne', verified: true },
+  { id: 'leetcode', label: 'LeetCode', url: 'https://leetcode.com/u/AbhijeetDhokne/', verified: true },
 ];
 
 export const certificates = [

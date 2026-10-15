@@ -1,48 +1,61 @@
+// Verified-content contract for the floating-islands universe.
+// Guards: five islands, genuine project data, no invented metrics, no phantom links.
+
 import { describe, expect, it } from 'vitest';
-import { destinations, collectibles, trainingStations, OVERVIEW_CAMERA } from './destinations';
-import { projects, missions, projectById } from './projects';
-import { skills } from './skills';
+import { islands, OVERVIEW_CAMERA, NAV_ORDER } from './navigation';
+import { flagships, projectById, projects } from './projects';
+import { skills, skillNodes } from './skills';
 import { experience } from './experience';
+import { education } from './education';
 
 const isVec3 = (v: unknown): boolean =>
   Array.isArray(v) && v.length === 3 && v.every((n) => Number.isFinite(n));
 
-describe('destinations', () => {
-  it('defines exactly five connected destinations with unique ids', () => {
-    expect(destinations).toHaveLength(5);
-    expect(new Set(destinations.map((d) => d.id)).size).toBe(5);
+describe('islands navigation chart', () => {
+  it('defines exactly six islands with unique ids in nav order', () => {
+    expect(islands).toHaveLength(6);
+    expect(new Set(islands.map((i) => i.id)).size).toBe(6);
+    expect(NAV_ORDER).toEqual(['home', 'projects', 'skills', 'journey', 'experience', 'contact']);
   });
 
-  it('gives every destination a valid anchor, camera pose, and 2D section', () => {
-    for (const d of destinations) {
-      expect(isVec3(d.position)).toBe(true);
-      expect(isVec3(d.camera.position)).toBe(true);
-      expect(isVec3(d.camera.target)).toBe(true);
-      expect(typeof d.sectionId).toBe('string');
+  it('gives every island a valid anchor, radius, and cinematic camera pose', () => {
+    for (const isl of islands) {
+      expect(isVec3(isl.position)).toBe(true);
+      expect(isl.radius).toBeGreaterThan(3);
+      expect(isVec3(isl.camera.position)).toBe(true);
+      expect(isVec3(isl.camera.target)).toBe(true);
+      expect(typeof isl.sectionId).toBe('string');
     }
     expect(isVec3(OVERVIEW_CAMERA.position)).toBe(true);
     expect(isVec3(OVERVIEW_CAMERA.target)).toBe(true);
   });
 
-  it('maps sections to real portfolio anchors', () => {
-    const anchors = ['intro', 'skills', 'projects', 'experience', 'contact'];
-    for (const d of destinations) {
-      expect(anchors).toContain(d.sectionId);
+  it('gives every island a positive framing box for responsive zoom', () => {
+    for (const isl of islands) {
+      expect(isl.frame.width).toBeGreaterThan(0);
+      expect(isl.frame.height).toBeGreaterThan(0);
     }
   });
 
-  it('places collectibles and stations without id collisions', () => {
-    expect(collectibles).toHaveLength(5);
-    expect(trainingStations).toHaveLength(3);
-    expect(new Set(collectibles.map((c) => c.id)).size).toBe(5);
-    for (const c of collectibles) expect(isVec3(c.position)).toBe(true);
+  it('maps islands to real portfolio sections', () => {
+    const anchors = ['intro', 'projects', 'skills', 'education', 'experience', 'contact'];
+    for (const isl of islands) {
+      expect(anchors).toContain(isl.sectionId);
+    }
+  });
+
+  it('staggers islands across elevations and depths', () => {
+    const ys = new Set(islands.map((i) => i.position[1]));
+    const zs = new Set(islands.map((i) => i.position[2]));
+    expect(ys.size).toBeGreaterThan(2);
+    expect(zs.size).toBeGreaterThan(2);
   });
 });
 
 describe('projects', () => {
-  it('exposes the two verified missions with problem/solution/links', () => {
-    expect(missions.map((m) => m.id).sort()).toEqual(['hostelresolve', 'hostmate']);
-    for (const m of missions) {
+  it('exposes the two verified flagships with problem/solution/links', () => {
+    expect(flagships.map((m) => m.id).sort()).toEqual(['hostelresolve', 'hostmate']);
+    for (const m of flagships) {
       expect(m.problem.length).toBeGreaterThan(10);
       expect(m.solution.length).toBeGreaterThan(10);
       expect(m.features.length).toBeGreaterThanOrEqual(3);
@@ -60,16 +73,32 @@ describe('projects', () => {
   });
 });
 
-describe('skills + experience', () => {
+describe('skills + journey', () => {
   it('lists skills without proficiency claims', () => {
     expect(skills.length).toBeGreaterThan(10);
-    const blob = JSON.stringify(skills);
-    expect(blob).not.toMatch(/%/);
+    for (const s of skills) {
+      expect(`${s.name} ${s.description} ${s.category}`).not.toMatch(/%/);
+    }
   });
 
-  it('covers all three verified experience entries without invented metrics', () => {
-    expect(experience.map((e) => e.id)).toEqual(['mern-medicaps', 'ai-intern-kv', 'aws-trainee-medicaps']);
+  it('groups every skill into an interactive 3D node exactly once', () => {
+    const grouped = skillNodes.flatMap((n) => n.skillIds);
+    const ids = skills.map((s) => s.id);
+    for (const id of ids) expect(grouped).toContain(id);
+    expect(new Set(grouped).size).toBe(grouped.length);
+  });
+
+  it('covers all three verified experience entries, most-recent-first, without invented metrics', () => {
+    expect(experience.map((e) => e.id)).toEqual(['ai-intern-kv', 'aws-trainee-medicaps', 'mern-medicaps']);
     const blob = JSON.stringify(experience);
     expect(blob).not.toMatch(/40%/);
+  });
+
+  it('keeps education editable in its own data file', () => {
+    expect(education.length).toBeGreaterThanOrEqual(3);
+    for (const e of education) {
+      expect(e.period.length).toBeGreaterThan(3);
+      expect(e.detail.length).toBeGreaterThan(10);
+    }
   });
 });

@@ -1,4 +1,4 @@
-// DEVSLAYER ambient audio — tiny generative WebAudio engine.
+// Floating-islands ambient audio — tiny generative WebAudio engine.
 // Off by default; starts only after explicit user toggle. No audio files,
 // no dependencies. A soft filtered-noise "night wind" + slow breathing pad.
 
