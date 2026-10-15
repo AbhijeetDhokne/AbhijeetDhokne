@@ -14,3 +14,235 @@
 .terminal-body::-webkit-scrollbar-thumb:hover {
   background: #5a5a5a;
 }
+
+/* ---------- DEVSLAYER Phase 1 shell ---------- */
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 20000;
+  background: var(--army-olive);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 12px 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mode-switch {
+  display: inline-flex;
+  background: rgba(53, 66, 48, 0.08);
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.mode-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.mode-btn.active {
+  background: var(--army-olive);
+  color: #fff;
+}
+
+.journey-strip {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.5rem 1.5rem;
+  border-top: 1px solid var(--border-soft);
+  background: rgba(53, 66, 48, 0.04);
+  scrollbar-width: thin;
+}
+.journey-strip-btn {
+  border: 1px solid var(--border-soft);
+  background: transparent;
+  color: var(--army-olive);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.journey-strip-btn:hover {
+  border-color: var(--army-olive);
+  background: rgba(53, 66, 48, 0.08);
+}
+
+.journey-map {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 1rem;
+}
+.journey-kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+.journey-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  color: var(--army-olive);
+  margin: 0 0 0.5rem;
+}
+.journey-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 620px;
+}
+.journey-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 2rem 0;
+}
+.journey-card {
+  position: relative;
+  border: 1px solid var(--border-soft);
+  border-top: 4px solid var(--accent, var(--primary));
+  border-radius: 16px;
+  padding: 1.25rem;
+  background: rgba(114, 125, 115, 0.05);
+}
+.journey-step {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--accent, var(--primary));
+}
+.journey-card h3 {
+  font-size: 1rem;
+  color: var(--army-olive);
+  margin: 0.4rem 0 0.5rem;
+}
+.journey-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+.journey-btn {
+  border: 1px solid var(--army-olive);
+  background: var(--army-olive);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.journey-btn.ghost {
+  background: transparent;
+  color: var(--army-olive);
+}
+.journey-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.webgl-note {
+  border-left: 3px solid var(--primary);
+  padding-left: 0.9rem;
+  max-width: 640px;
+}
+
+.shell-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.shell-spinner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid rgba(53, 66, 48, 0.2);
+  border-top-color: var(--army-olive);
+  animation: shell-spin 0.9s linear infinite;
+  display: inline-block;
+}
+@keyframes shell-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- DEVSLAYER Phase 2: 3D world ---------- */
+
+.world-canvas-wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 0;
+  height: clamp(360px, 55vh, 560px);
+  box-sizing: border-box;
+}
+.world-canvas-wrap > div {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  height: 100%;
+}
+.world-canvas-wrap canvas {
+  display: block;
+  touch-action: pan-y;
+}
+.world-fallback-note {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding: 1rem 1.5rem;
+  border-left: 3px solid var(--primary);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .header-actions .mode-switch {
+    display: none;
+  }
+  .journey-map {
+    padding-top: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shell-spinner {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

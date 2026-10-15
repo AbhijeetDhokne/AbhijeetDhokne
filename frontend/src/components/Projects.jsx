@@ -3,84 +3,23 @@ import { motion } from 'framer-motion';
 import { Code2, ArrowUpDown } from 'lucide-react';
 import ProjectCard from './ProjectCard';
 
-const projects = [
-    {
-      title: 'Spotify Clone',
-      description: 'A frontend UI clone of Spotify built during early learning phase to practice HTML and CSS fundamentals. This project helped in understanding layout design, responsive styling, and recreating real-world interfaces from scratch.',
-      image: `${import.meta.env.BASE_URL}images/spotify.jpg`,
-      liveUrl: 'https://abhijeet83193.github.io/Spotify-Clone/',
-      githubUrl: 'https://github.com/Abhijeet83193/Spotify-Clone',
-      techStack: ['HTML', 'CSS'],
-      role: 'Frontend Developer',
-      date: '2024',
-      year: 2024,
-      order: 1
-    },
-    {
-      title: 'FramePro',
-      description: 'A simple, elegant platform designed using HTML and CSS to streamline the process of hiring photographers for events. Whether it\'s a wedding, corporate gathering, or a personal photoshoot, FramePro connects users with skilled professionals to capture their special moments. This responsive and user-friendly interface ensures seamless navigation for users to explore and book photographers effortlessly.',
-      image: `${import.meta.env.BASE_URL}images/camera.jpg`,
-      imagePosition: 'top',
-      liveUrl: 'https://abhijeet83193.github.io/FramePro/',
-      githubUrl: 'https://github.com/Abhijeet83193/FramePro',
-      techStack: ['HTML', 'CSS'],
-      role: 'Frontend Developer',
-      date: '2024',
-      year: 2024,
-      order: 2
-    },
-    {
-      title: 'WeatherApp',
-      description: 'A modern and responsive weather application built with React (Vite). The app fetches real-time weather data using the OpenWeather API and displays current weather conditions for any searched city.',
-      image: `${import.meta.env.BASE_URL}images/weather-app.jpg`,
-      liveUrl: 'https://weatherapp-7d1e.onrender.com',
-      githubUrl: 'https://github.com/Abhijeet83193/WeatherApp',
-      techStack: ['React', 'JavaScript', 'HTML', 'CSS', 'OpenWeather API'],
-      role: 'Frontend Developer',
-      date: '2025',
-      year: 2025,
-      order: 3
-    },
-    {
-      title: 'Hostmate',
-      description: 'A modern web application for rental room listings and booking. It allows users to explore, list, and book rental rooms seamlessly. With an intuitive interface, integrated payments, and interactive maps, Hostmate simplifies the rental experience for both hosts and guests.',
-      image: `${import.meta.env.BASE_URL}images/hostmate.jpg`,
-      imagePosition: 'bottom',
-      liveUrl: 'https://hostmate-6org.onrender.com/',
-      githubUrl: 'https://github.com/Abhijeet83193/Hostmate',
-      techStack: ['Node.js', 'Express.js', 'MongoDB', 'JavaScript', 'HTML', 'CSS', 'Stripe', 'Cloudinary', 'OpenStreetMap'],
-      role: 'Full Stack Developer',
-      date: '2025',
-      year: 2025,
-      order: 4
-    },
-{
-       title: 'HostelResolve',
-       description: 'A hostel complaint management system that increases transparency between wardens and students. If complaints remain unresolved, the system automatically escalates them to higher authorities via email.',
-       image: `${import.meta.env.BASE_URL}images/hostelresolve.jpg`,
-       liveUrl: 'https://hostelresolve-frontend.onrender.com/',
-       githubUrl: 'https://github.com/Abhijeet83193/HostelResolve',
-       techStack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'SMTP', 'Cloudinary', 'JavaScript', 'HTML', 'CSS', 'Framer Motion'],
-       role: 'MERN Stack Developer',
-       date: '2026',
-       year: 2026,
-       order: 5
-     },
-    {
-      title: 'My Portfolio',
-      description: 'A personal portfolio website showcasing my skills, projects, education, and experience as a Full Stack Developer. Built with React, Framer Motion, and Lottie animations for a modern, interactive experience with smooth scrolling, animated sections, and dynamic project filtering.',
-      image: `${import.meta.env.BASE_URL}images/my-portfolio.jpg`,
-      imagePosition: 'top',
-      liveUrl: '#home',
-      isMe: true,
-      githubUrl: 'https://github.com/Abhijeet83193/Myportfolio',
-      techStack: ['React', 'JavaScript', 'HTML', 'CSS', 'Framer Motion', 'Lottie', 'Vite', 'GitHub', 'Node.js', 'Express.js', 'MongoDB'],
-      role: 'Full Stack Developer',
-      date: '2026',
-      year: 2026,
-      order: 6
-    }
-  ];
+import { projects as projectData } from '../data/projects';
+
+// Adapter: data layer uses summary/links; cards consume the legacy shape.
+const projects = projectData.map((p) => ({
+  title: p.title,
+  description: p.summary,
+  image: p.image,
+  imagePosition: p.imagePosition,
+  liveUrl: p.links.live,
+  githubUrl: p.links.github,
+  techStack: p.techStack,
+  role: p.role,
+  date: p.date,
+  year: p.year,
+  order: p.order,
+  isMe: p.isMe,
+}));
 
 const Projects = () => {
   const [sortBy, setSortBy] = useState('all');

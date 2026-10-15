@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback, memo } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   LayoutDashboard,
   Briefcase,
@@ -18,6 +18,7 @@ import {
   Trophy,
   Rocket,
   Cpu,
+  Cloud,
   Award,
   Globe,
   Menu,
@@ -31,6 +32,14 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
+import { ModeProvider } from './mode/ModeContext';
+import useMode from './mode/useMode';
+import ModeSwitch from './components/shell/ModeSwitch';
+import ErrorBoundary from './components/shell/ErrorBoundary';
+import AdventureView from './components/adventure/AdventureView';
+import { profile as profileData } from './data/profile';
+import { experience as experienceData } from './data/experience';
+import { destinations, scrollToSection } from './data/destinations';
 
 // --- Custom X Icon ---
 const XIcon = ({ size = 20, color = "currentColor" }) => (
@@ -556,12 +565,6 @@ const Quote = ({ homeKey, scrollContainerRef }) => {
       </div>
     </div>
   );
-};
-
-const cardTransition = {
-  type: "spring",
-  stiffness: 100,
-  damping: 20
 };
 
 const cardVariants = {
@@ -1286,121 +1289,129 @@ const Education = () => {
   );
 };
 
-const Experience = () => {
-  const techStack = ['React', 'Node.js', 'MongoDB', 'SMTP', 'Express.js'];
-
-  return (
-    <div className="experience-section">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-        viewport={{ once: true, amount: 0.15 }}
-        style={{ width: '100%', maxWidth: '1000px', margin: '0 auto' }}
-      >
-        <motion.div
-          transition={{ type: 'spring', stiffness: 500, damping: 15 }}
+const ExperienceCard = ({ job, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.1 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+    viewport={{ once: true, amount: 0.15 }}
+    style={{ width: '100%', maxWidth: '1000px', margin: '0 auto' }}
+  >
+    <motion.div
+      transition={{ type: 'spring', stiffness: 500, damping: 15 }}
+      style={{
+        background: 'rgba(114, 125, 115, 0.05)',
+        borderRadius: '24px',
+        padding: '2.5rem',
+        border: '1px solid var(--border-soft)',
+        transition: 'transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out',
+        cursor: 'default'
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem', marginBottom: '1.5rem' }}>
+        <div
           style={{
-            background: 'rgba(114, 125, 115, 0.05)',
-            borderRadius: '24px',
-            padding: '2.5rem',
-            border: '1px solid var(--border-soft)',
-            transition: 'transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out',
-            cursor: 'default'
+            width: '80px',
+            height: '80px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+            overflow: 'hidden',
+            borderRadius: '12px',
+            background: job.logo ? 'transparent' : 'rgba(114, 125, 115, 0.1)'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem', marginBottom: '1.5rem' }}>
-            <div
-              style={{
-                width: '80px',
-                height: '80px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-                overflow: 'hidden',
-                borderRadius: '12px'
-              }}
-            >
-              <img
-                src={`${import.meta.env.BASE_URL}images/medicaps-logo-fin-Picsart-BackgroundRemover.png`}
-                alt="Medicaps University"
-                className="medicaps-logo-blend"
-                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-                loading="lazy"
-              />
-            </div>
-            <div style={{ flex: 1 }}>
-              <h3 style={{ fontSize: '1.3rem', color: 'var(--army-olive)', fontWeight: '700', marginBottom: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                MERN Stack Developer
-              </h3>
-              <p style={{ fontSize: '1rem', color: 'var(--text-main)', fontWeight: '500', marginBottom: '0.2rem' }}>
-                Medicaps University
-              </p>
-              <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Feb 2026 - May 2026</span>
-                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>2-Member Team</span>
-              </div>
-            </div>
-          </div>
-
-          <p style={{ fontSize: '0.95rem', lineHeight: '1.6', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
-            Built a hostel complaint management system to digitize workflows and boost transparency by 40%.
+          {job.logo ? (
+            <img
+              src={job.logo}
+              alt={job.org}
+              className="medicaps-logo-blend"
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              loading="lazy"
+            />
+          ) : job.icon === 'cloud' ? (
+            <Cloud size={40} color="var(--army-olive)" />
+          ) : (
+            <Cpu size={40} color="var(--army-olive)" />
+          )}
+        </div>
+        <div style={{ flex: 1 }}>
+          <h3 style={{ fontSize: '1.3rem', color: 'var(--army-olive)', fontWeight: '700', marginBottom: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            {job.role}
+          </h3>
+          <p style={{ fontSize: '1rem', color: 'var(--text-main)', fontWeight: '500', marginBottom: '0.2rem' }}>
+            {job.org}
           </p>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem' }}>
-            {[
-              'Built REST APIs with Node.js & Express.js for complaint tracking',
-              'Integrated SMTP-based automated escalation for unresolved issues',
-              'Designed responsive React UI for students & hostel admin',
-              'Achieved 40% increase in hostel management transparency'
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.08 }}
-                viewport={{ once: true }}
-                style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}
-              >
-                <div style={{ width: '6px', height: '6px', background: 'var(--army-olive)', borderRadius: '50%', marginTop: '7px', flexShrink: 0 }}></div>
-                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>{item}</span>
-              </motion.div>
-            ))}
+          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{job.period}</span>
+            {job.team && <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{job.team}</span>}
           </div>
+        </div>
+      </div>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-            {techStack.map((tech, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                style={{
-                  padding: '0.35rem 0.85rem',
-                  background: 'rgba(114, 125, 115, 0.08)',
-                  borderRadius: '20px',
-                  fontSize: '0.8rem',
-                  color: 'var(--text-main)',
-                  border: '1px solid var(--border-soft)',
-                  fontWeight: '500'
-                }}
-              >
-                {tech}
-              </motion.span>
-            ))}
-          </div>
-        </motion.div>
-      </motion.div>
+      <p style={{ fontSize: '0.95rem', lineHeight: '1.6', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+        {job.summary}
+      </p>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem' }}>
+        {job.bullets.map((item, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: idx * 0.08 }}
+            viewport={{ once: true }}
+            style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}
+          >
+            <div style={{ width: '6px', height: '6px', background: 'var(--army-olive)', borderRadius: '50%', marginTop: '7px', flexShrink: 0 }}></div>
+            <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>{item}</span>
+          </motion.div>
+        ))}
+      </div>
+
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+        {job.techStack.map((tech, idx) => (
+          <motion.span
+            key={idx}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: idx * 0.1 }}
+            viewport={{ once: true }}
+            style={{
+              padding: '0.35rem 0.85rem',
+              background: 'rgba(114, 125, 115, 0.08)',
+              borderRadius: '20px',
+              fontSize: '0.8rem',
+              color: 'var(--text-main)',
+              border: '1px solid var(--border-soft)',
+              fontWeight: '500'
+            }}
+          >
+            {tech}
+          </motion.span>
+        ))}
+      </div>
+    </motion.div>
+  </motion.div>
+);
+
+const Experience = () => {
+  return (
+    <div className="experience-section" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+      {experienceData.map((job, index) => (
+        <ExperienceCard key={job.id} job={job} index={index} />
+      ))}
     </div>
   );
 };
 
 const MainLanding = ({ homeKey, scrollContainerRef }) => {
+  const { isAdventure } = useMode();
   return (
     <div className="home-view">
       <Section id="home" key={`home-${homeKey}`} once={false}><Quote homeKey={homeKey} scrollContainerRef={scrollContainerRef} /></Section>
+      {isAdventure && <AdventureView />}
       <Section id="intro" once={false}><Intro scrollContainerRef={scrollContainerRef} /></Section>
       <Section id="what-i-do" title="What I Do" subtitle="My Expertise" description="Turning complex problems into elegant, scalable solutions — one component at a time.">
         <WhatIDo scrollContainerRef={scrollContainerRef} />
@@ -1430,7 +1441,7 @@ const MainLanding = ({ homeKey, scrollContainerRef }) => {
   );
 };
 
-const Header = ({ homeKey, setHomeKey }) => {
+const Header = ({ setHomeKey }) => {
   const [activePath, setActivePath] = useState(window.location.hash.replace('#', '') || '/');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isScrollingByNav = useRef(false);
@@ -1513,7 +1524,7 @@ const Header = ({ homeKey, setHomeKey }) => {
         }} style={{ cursor: 'pointer' }}>
           <h1>Abhijeet Dhokne</h1>
         </div>
-        <nav className="header-actions">
+        <nav className="header-actions" aria-label="Primary">
           <div className="action-buttons desktop-nav">
             {navItems.map((item) => (
               <a
@@ -1525,7 +1536,16 @@ const Header = ({ homeKey, setHomeKey }) => {
                 {item.label}
               </a>
             ))}
+            <a
+              href={profileData.resumePath}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link-custom nav-resume"
+            >
+              Resume
+            </a>
           </div>
+          <ModeSwitch />
           <button
             className="mobile-menu-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -1543,6 +1563,21 @@ const Header = ({ homeKey, setHomeKey }) => {
         </nav>
       </div>
 
+      {/* Persistent journey destinations: always one click away, never gated */}
+      <nav className="journey-strip" aria-label="Journey destinations">
+        {destinations.map((d) => (
+          <button
+            key={d.id}
+            type="button"
+            className="journey-strip-btn"
+            title={d.arc}
+            onClick={() => scrollToSection(d.sectionId)}
+          >
+            {d.label}
+          </button>
+        ))}
+      </nav>
+
       {/* Mobile Menu Overlay */}
       <div className={`mobile-menu-overlay ${mobileMenuOpen ? 'open' : ''}`} onClick={() => setMobileMenuOpen(false)} />
 
@@ -1559,6 +1594,18 @@ const Header = ({ homeKey, setHomeKey }) => {
             {item.label}
           </a>
         ))}
+        <a
+          href={profileData.resumePath}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mobile-nav-link"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          Resume
+        </a>
+        <div style={{ padding: '1rem 1.5rem' }}>
+          <ModeSwitch />
+        </div>
       </div>
     </header>
   );
@@ -1603,17 +1650,22 @@ function App() {
   const scrollContainerRef = useRef(null);
 
   return (
-    <Router>
-      <div className="app-container">
-        <Header homeKey={homeKey} setHomeKey={setHomeKey} />
-        <main className="main-content" ref={scrollContainerRef}>
-          <Routes>
-            <Route path="*" element={<MainLanding homeKey={homeKey} scrollContainerRef={scrollContainerRef} />} />
-          </Routes>
-          <Footer />
-        </main>
-      </div>
-    </Router>
+    <ModeProvider>
+      <Router>
+        <div className="app-container">
+          <a href="#main-content" className="skip-link">Skip to content</a>
+          <Header setHomeKey={setHomeKey} />
+          <main id="main-content" className="main-content" ref={scrollContainerRef} tabIndex={-1}>
+            <ErrorBoundary>
+              <Routes>
+                <Route path="*" element={<MainLanding homeKey={homeKey} scrollContainerRef={scrollContainerRef} />} />
+              </Routes>
+              <Footer />
+            </ErrorBoundary>
+          </main>
+        </div>
+      </Router>
+    </ModeProvider>
   );
 }
 

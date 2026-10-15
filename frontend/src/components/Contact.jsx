@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, MapPin, Phone, ExternalLink, Globe } from 'lucide-react';
+import { Github, Linkedin, MapPin, ExternalLink, Globe } from 'lucide-react';
 
 const XIcon = ({ size = 20, color = 'currentColor' }) => (
   <svg
@@ -163,32 +163,7 @@ const Contact = memo(() => {
 
 
 
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1rem',
-                padding: '1rem',
-                background: 'rgba(114, 125, 115, 0.05)',
-                borderRadius: '12px',
-                border: '1px solid var(--border-soft)'
-              }}>
-                <div style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '10px',
-                  background: 'rgba(53, 66, 48, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'var(--army-olive)'
-                }}>
-                  <Phone size={18} />
-                </div>
-                <div>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.2rem' }}>Phone</p>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-main)', fontWeight: '600' }}>+91 8319391214</p>
-                </div>
-              </div>
+
             </div>
           </div>
 
