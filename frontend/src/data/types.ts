@@ -1,17 +1,11 @@
-// DEVSLAYER content model — typed. Verified strings only; TODOs never render.
+// Floating-islands content model. Verified strings only; TODOs never render.
+// No proficiency percentages, no invented metrics, no fictional branding.
 
 export interface Social {
   id: string;
   label: string;
   url: string;
   verified: boolean;
-}
-
-export interface CodingProfile {
-  id: string;
-  label: string;
-  username: string;
-  url: string;
 }
 
 export interface ProjectLinks {
@@ -22,7 +16,7 @@ export interface ProjectLinks {
 export interface Project {
   id: string;
   title: string;
-  category: 'mission' | 'frontend' | 'practice' | 'portfolio';
+  category: 'flagship' | 'frontend' | 'practice' | 'portfolio';
   summary: string;
   problem: string;
   solution: string;
@@ -58,36 +52,77 @@ export interface ExperienceEntry {
   techStack: string[];
 }
 
-export type DestinationId = 'origins' | 'training' | 'missions' | 'trials' | 'summit';
+export interface EducationEntry {
+  id: string;
+  degree: string;
+  school: string;
+  period: string;
+  detail: string;
+}
 
-export interface Destination {
-  id: DestinationId;
+export type IslandId = 'home' | 'projects' | 'skills' | 'journey' | 'experience' | 'contact';
+
+export interface IslandDefinition {
+  id: IslandId;
+  /** Short label for nav + destination indicator. */
   label: string;
-  arc: string;
+  /** One-line cinematic subtitle. */
   tagline: string;
   description: string;
   accent: string;
-  /** 2D portfolio section anchor (accessible equivalent). */
+  /** Accessible 2D section anchor (fallback portfolio). */
   sectionId: string;
-  /** 3D world anchor. */
+  /** 3D world anchor (island centre). */
   position: [number, number, number];
-  /** Beacon marker anchor (defaults to position; offset for camera composition). */
-  beacon?: [number, number, number];
+  /** Island visual radius (top disc). */
+  radius: number;
+  /** Framing box (world units) used to fit the island in view on any screen. */
+  frame: {
+    width: number;
+    height: number;
+    /** Desired island screen position in NDC (+x right, +y up). Defaults: centered, slightly low. */
+    ox?: number;
+    oy?: number;
+    /** Per-island zoom multiplier on the fitted distance (default 1). */
+    zoom?: number;
+  };
   camera: { position: [number, number, number]; target: [number, number, number] };
 }
 
-export interface TrainingStation {
-  id: string;
-  title: string;
-  area: string;
-  description: string;
-  relatedSkills: string[];
+// --- Island navigation state (travel requests shared by nav, beacons, camera)
+
+export type IslandDestination = IslandId | 'overview';
+
+export interface TravelRequest {
+  dest: IslandDestination;
+  nonce: number;
 }
 
-export interface Collectible {
-  id: string;
-  name: string;
-  hint: string;
-  position: [number, number, number];
-  color: string;
+export type Selection =
+  | { type: 'project'; id: string }
+  | { type: 'skill-node'; id: string }
+  | { type: 'experience'; id: string }
+  | { type: 'education' }
+  | { type: 'contact' }
+  | null;
+
+export interface IslandState {
+  /** Whether the visitor has entered the 3D universe (hero overlay dismissed). */
+  entered: boolean;
+  enter: () => void;
+  returnHome: () => void;
+  current: IslandDestination;
+  travelRequest: TravelRequest;
+  requestTravel: (dest: IslandDestination) => void;
+  markArrived: (dest: IslandDestination) => void;
+  traveling: boolean;
+  setTraveling: (t: boolean) => void;
+  /** Skip the in-flight camera tween (accessibility + reduced motion). */
+  skipNonce: number;
+  requestSkip: () => void;
+  selection: Selection;
+  select: (s: Selection) => void;
+  webglFailed: boolean;
+  setWebglFailed: (v: boolean) => void;
 }
+

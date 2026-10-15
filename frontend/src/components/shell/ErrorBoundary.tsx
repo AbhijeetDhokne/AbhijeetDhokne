@@ -10,7 +10,7 @@ class ErrorBoundary extends Component<{ children: ReactNode; fallback?: ReactNod
   }
 
   componentDidCatch(error: unknown): void {
-    console.error('DEVSLAYER error:', error);
+    console.error('Floating Islands error:', error);
   }
 
   render(): ReactNode {

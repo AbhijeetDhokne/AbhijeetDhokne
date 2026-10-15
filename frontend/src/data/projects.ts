@@ -8,7 +8,7 @@ export const projects: Project[] = [
   {
     id: 'hostelresolve',
     title: 'HostelResolve',
-    category: 'mission',
+    category: 'flagship',
     summary: 'Hostel complaint management system bringing transparency between wardens and students.',
     problem: 'Opaque, manual hostel complaint workflows between students and wardens.',
     solution:
@@ -32,7 +32,7 @@ export const projects: Project[] = [
   {
     id: 'hostmate',
     title: 'Hostmate',
-    category: 'mission',
+    category: 'flagship',
     summary: 'Rental marketplace for listing, discovering, and booking rooms.',
     problem: 'Fragmented rental discovery: scattered listings, no trusted booking flow.',
     solution:
@@ -113,6 +113,9 @@ export const projects: Project[] = [
   },
 ];
 
-export const missions = projects.filter((p) => p.category === 'mission');
+export const flagships = projects.filter((p) => p.category === 'flagship');
+
+/** Deprecated alias — prefer `flagships`. */
+export const missions = flagships;
 
 export const projectById = (id: string): Project | undefined => projects.find((p) => p.id === id);
