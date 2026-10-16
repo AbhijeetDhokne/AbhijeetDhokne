@@ -51,7 +51,7 @@ const Nebula = ({ count = 5 }: { count?: number }) => {
 
 const Motes = ({ count = 320 }: { count?: number }) => {
   const ref = useRef<THREE.Points>(null);
-  const { positions, seeds } = useMemo(() => {
+  const { positions, seeds, tex } = useMemo(() => {
     const rand = mulberry32(4177);
     const positions = new Float32Array(count * 3);
     const seeds = new Float32Array(count);
@@ -61,7 +61,21 @@ const Motes = ({ count = 320 }: { count?: number }) => {
       positions[i * 3 + 2] = -60 + rand() * 110;
       seeds[i] = rand() * Math.PI * 2;
     }
-    return { positions, seeds };
+    // Soft round sprite so motes render as glow dots, never squares.
+    const c = document.createElement('canvas');
+    c.width = c.height = 32;
+    const ctx = c.getContext('2d');
+    let t: THREE.CanvasTexture | null = null;
+    if (ctx) {
+      const g = ctx.createRadialGradient(16, 16, 1, 16, 16, 16);
+      g.addColorStop(0, 'rgba(255,255,255,1)');
+      g.addColorStop(0.4, 'rgba(255,255,255,0.6)');
+      g.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, 32, 32);
+      t = new THREE.CanvasTexture(c);
+    }
+    return { positions, seeds, tex: t };
   }, [count]);
 
   useFrame(({ clock }) => {
@@ -81,7 +95,16 @@ const Motes = ({ count = 320 }: { count?: number }) => {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      <pointsMaterial color="#9fd8ff" size={0.22} transparent opacity={0.65} sizeAttenuation depthWrite={false} />
+      <pointsMaterial
+        map={tex ?? undefined}
+        color="#9fd8ff"
+        size={0.35}
+        transparent
+        opacity={0.65}
+        sizeAttenuation
+        depthWrite={false}
+        alphaTest={0.01}
+      />
     </points>
   );
 };

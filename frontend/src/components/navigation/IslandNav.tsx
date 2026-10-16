@@ -48,8 +48,10 @@ const IslandNav = () => {
 
   return (
     <header className="world-nav" role="banner">
-      <button type="button" className="world-brand" onClick={returnHome} aria-label="Return to Home island">
-        <span className="world-brand-mark" aria-hidden="true">AD</span>
+      <button type="button" className="world-brand" onClick={() => requestTravel('overview')} aria-label="View all islands (overview)">
+        <span className="world-brand-mark" aria-hidden="true">
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" />
+        </span>
         <span className="world-brand-text">Abhijeet Dhokne</span>
       </button>
 

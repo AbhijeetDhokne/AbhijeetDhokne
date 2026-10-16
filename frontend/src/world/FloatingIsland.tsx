@@ -150,8 +150,69 @@ const CrystalCluster = ({ accent, seed }: { accent: string; seed: string }) => {
   );
 };
 
-const FloatingIsland = ({
-  position,
+const CLOUD_PUFF: Array<[number, number, number, number]> = [
+  [0, 0, 0, 1.0],
+  [-1.0, -0.2, 0.15, 0.72],
+  [1.0, -0.15, -0.1, 0.76],
+  [0.2, 0.6, -0.15, 0.68],
+];
+
+const Clouds = ({ radius, seed, still }: { radius: number; seed: string; still: boolean }) => {
+  const rand = useMemo(() => mulberry32(hashSeed(seed + ':clouds')), [seed]);
+  const puffs = useMemo(
+    () =>
+      Array.from({ length: 3 }, (_, i) => {
+        // Even 120° spacing so puffs never bunch up; jitter keeps it natural.
+        const a = (i / 3) * Math.PI * 2 + rand() * 0.7;
+        const d = radius * (0.2 + rand() * 0.4);
+        return {
+          x: Math.cos(a) * d,
+          y: 11 + rand() * 2.5,
+          z: Math.sin(a) * d,
+          s: 0.55 + rand() * 0.35,
+          speed: 0.08 + rand() * 0.08,
+          phase: rand() * Math.PI * 2,
+        };
+      }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [radius, seed],
+  );
+  const group = useRef<THREE.Group>(null);
+  useFrame(({ clock }) => {
+    const g = group.current;
+    if (!g || still) return;
+    const t = clock.elapsedTime;
+    g.children.forEach((child, i) => {
+      const p = puffs[i];
+      child.position.x = p.x + Math.sin(t * p.speed + p.phase) * 1.4;
+      child.position.y = p.y + Math.sin(t * 0.28 + p.phase) * 0.35;
+    });
+  });
+  return (
+    <group ref={group}>
+      {puffs.map((p, i) => (
+        <group key={i} position={[p.x, p.y, p.z]} scale={p.s}>
+          {CLOUD_PUFF.map(([x, y, z, r], j) => (
+            <mesh key={j} position={[x, y, z]}>
+              <sphereGeometry args={[r, 14, 12]} />
+              <meshStandardMaterial
+                color="#eef4ff"
+                emissive="#cdd9ff"
+                emissiveIntensity={0.28}
+                roughness={1}
+                transparent
+                opacity={0.92}
+                depthWrite={false}
+              />
+            </mesh>
+          ))}
+        </group>
+      ))}
+    </group>
+  );
+};
+
+const FloatingIsland = ({  position,
   radius = 8,
   accent = '#7adeff',
   seed = 'island',
@@ -244,6 +305,7 @@ const FloatingIsland = ({
         <Pines radius={radius} seed={seed} count={Math.round(radius * 1.6)} />
         <CrystalCluster accent={accent} seed={seed} />
         <Orbs radius={radius} seed={seed} accent={accent} />
+        <Clouds radius={radius} seed={seed} still={still} />
 
         {children}
       </group>

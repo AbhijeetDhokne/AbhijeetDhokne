@@ -8,6 +8,9 @@ import WorldEnvironment from './WorldEnvironment';
 import IslandConnections from './IslandConnections';
 import CameraController from './CameraController';
 import InteractionManager from './InteractionManager';
+import SpotFollow from './SpotFollow';
+import ArrivalSparkles from './ArrivalSparkles';
+import Lanterns from './Lanterns';
 import HomeIsland from '../islands/HomeIsland';
 import ProjectsIsland from '../islands/ProjectsIsland';
 import SkillsIsland from '../islands/SkillsIsland';
@@ -29,6 +32,9 @@ const World = () => {
   return (
     <>
       <WorldEnvironment still={reduced} />
+      <SpotFollow />
+      <ArrivalSparkles still={reduced} />
+      <Lanterns still={reduced} />
       <Suspense fallback={null}>
         <IslandConnections still={reduced} />
         <HomeIsland />

@@ -87,8 +87,8 @@ export const islands: IslandDefinition[] = [
 ];
 
 export const OVERVIEW_CAMERA = {
-  position: [0, 26, 44] as [number, number, number],
-  target: [0, 0, -12] as [number, number, number],
+  position: [0, 31, 47] as [number, number, number],
+  target: [0, 2.5, -12] as [number, number, number],
 };
 
 export const islandById = (id: IslandId): IslandDefinition =>
