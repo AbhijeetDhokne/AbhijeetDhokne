@@ -45,6 +45,8 @@ const SPOTS: Array<[number, number, number]> = [
   [3.4, 1.4, -1.2],
 ];
 
+const ROLE_COLORS = ['#f49df2', '#ffb35c', '#6fe3a5'];
+
 const ExperienceIsland = () => {
   const def = islandById('experience');
   const { current, requestTravel } = useIslands();
@@ -60,7 +62,7 @@ const ExperienceIsland = () => {
       onSelect={() => requestTravel('experience')}
     >
       {experience.map((e, i) => (
-        <Monolith key={e.id} id={e.id} index={i} spot={SPOTS[i % SPOTS.length]} accent={def.accent} />
+        <Monolith key={e.id} id={e.id} index={i} spot={SPOTS[i % SPOTS.length]} accent={ROLE_COLORS[i % ROLE_COLORS.length]} />
       ))}
       <BeaconLabel
         dest="experience"

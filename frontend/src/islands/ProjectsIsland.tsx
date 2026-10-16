@@ -17,6 +17,14 @@ const SPOTS: Record<string, [number, number, number]> = {
   'spotify-clone': [4.2, 1.4, 3],
 };
 
+const HALL_COLORS: Record<string, string> = {
+  hostelresolve: '#ffc46b',
+  hostmate: '#ff9d6b',
+  weatherapp: '#6fd6ff',
+  framepro: '#c77dff',
+  'spotify-clone': '#6fe3a5',
+};
+
 const ProjectHall = ({
   id,
   title,
@@ -76,7 +84,7 @@ const ProjectsIsland = () => {
           title={p.title}
           flagship={p.category === 'flagship'}
           spot={SPOTS[p.id] ?? [0, 1.4, 0]}
-          accent={p.category === 'flagship' ? def.accent : '#8ac7ff'}
+          accent={HALL_COLORS[p.id] ?? def.accent}
         />
       ))}
       <BeaconLabel dest="projects" title="Projects" tagline={def.tagline} active={current === 'projects'} y={7.5} />

@@ -14,6 +14,7 @@ import { useReducedMotion } from '../hooks/device';
 const Portal = ({ accent, still }: { accent: string; still: boolean }) => {
   const rings = useRef<THREE.Group>(null);
   const disc = useRef<THREE.Mesh>(null);
+  const secondary = '#c77dff';
   useFrame(({ clock }) => {
     if (still) return;
     const t = clock.elapsedTime;
@@ -34,20 +35,28 @@ const Portal = ({ accent, still }: { accent: string; still: boolean }) => {
         <mesh key={r} position={[0, 1.2 + r, 0]}>
           <torusGeometry args={[r, i === 0 ? 0.16 : 0.08, 10, 64]} />
           <meshStandardMaterial
-            color={accent}
-            emissive={accent}
+            color={i === 0 ? accent : secondary}
+            emissive={i === 0 ? accent : secondary}
             emissiveIntensity={i === 0 ? 2.2 : 1.4}
             roughness={0.35}
           />
         </mesh>
       ))}
       <group ref={rings}>
-        {Array.from({ length: 10 }, (_, i) => {
-          const a = (i / 10) * Math.PI * 2;
+        {Array.from({ length: 8 }, (_, i) => {
+          const a = (i / 8) * Math.PI * 2;
+          const orbColor = i % 2 === 0 ? accent : secondary;
           return (
             <mesh key={i} position={[Math.cos(a) * 2.6, 1.2 + 2.6 + Math.sin(a) * 2.6, 0.1]}>
-              <boxGeometry args={[0.22, 0.22, 0.22]} />
-              <meshStandardMaterial color={accent} emissive={accent} emissiveIntensity={2} />
+              <sphereGeometry args={[0.14, 16, 16]} />
+              <meshStandardMaterial
+                color={orbColor}
+                emissive={orbColor}
+                emissiveIntensity={2}
+                roughness={0.3}
+                transparent
+                opacity={0.95}
+              />
             </mesh>
           );
         })}

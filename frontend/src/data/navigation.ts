@@ -25,7 +25,7 @@ export const islands: IslandDefinition[] = [
     tagline: 'Real builds, real stakes',
     description:
       'Two flagship builds, HostelResolve and Hostmate, plus frontend studies, each in its own structure.',
-    accent: '#7adeff',
+    accent: '#ffb35c',
     sectionId: 'projects',
     position: [26, 3, -6],
     radius: 7.5,
@@ -51,7 +51,7 @@ export const islands: IslandDefinition[] = [
     tagline: 'Education and credentials',
     description:
       'Education history and certificates: schools, degrees, and verified credentials.',
-    accent: '#8ac7ff',
+    accent: '#6fe3a5',
     sectionId: 'education',
     position: [12, -2, -30],
     radius: 7,
@@ -64,7 +64,7 @@ export const islands: IslandDefinition[] = [
     tagline: 'Professional experience',
     description:
       'Verified professional roles, most recent first: AI engineering, cloud training, and MERN product work.',
-    accent: '#7adeff',
+    accent: '#f49df2',
     sectionId: 'experience',
     position: [0, 8, -52],
     radius: 7,
@@ -77,7 +77,7 @@ export const islands: IslandDefinition[] = [
     tagline: 'The signal portal',
     description:
       'Final destination. A glowing communication portal with verified email, GitHub, LinkedIn, and resume links.',
-    accent: '#c9ccff',
+    accent: '#6aa8ff',
     sectionId: 'contact',
     position: [-12, 7, -32],
     radius: 6,

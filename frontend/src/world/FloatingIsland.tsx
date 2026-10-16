@@ -63,17 +63,17 @@ const Pines = ({ radius, seed, count = 14 }: { radius: number; seed: string; cou
   );
 };
 
-const Shards = ({ radius, seed, accent }: { radius: number; seed: string; accent: string }) => {
-  const rand = useMemo(() => mulberry32(hashSeed(seed + ':shards')), [seed]);
-  const rocks = useMemo(
+const Orbs = ({ radius, seed, accent }: { radius: number; seed: string; accent: string }) => {
+  const rand = useMemo(() => mulberry32(hashSeed(seed + ':orbs')), [seed]);
+  const orbs = useMemo(
     () =>
-      Array.from({ length: 7 }, (_, i) => ({
+      Array.from({ length: 5 }, () => ({
         angle: rand() * Math.PI * 2,
-        dist: radius * (1.25 + rand() * 0.5),
-        y: -1 - rand() * 3,
-        s: 0.25 + rand() * 0.55,
-        speed: 0.05 + rand() * 0.08,
-        glow: i % 3 === 0,
+        dist: radius * (1.3 + rand() * 0.45),
+        y: -0.5 - rand() * 2.5,
+        s: 0.12 + rand() * 0.14,
+        speed: 0.03 + rand() * 0.04,
+        phase: rand() * Math.PI * 2,
       })),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [radius, seed],
@@ -84,26 +84,26 @@ const Shards = ({ radius, seed, accent }: { radius: number; seed: string; accent
     if (!g) return;
     const t = clock.elapsedTime;
     g.children.forEach((child, i) => {
-      const r = rocks[i];
+      const r = orbs[i];
       child.position.set(
         Math.cos(r.angle + t * r.speed) * r.dist,
-        r.y + Math.sin(t * 0.5 + i * 1.7) * 0.35,
+        r.y + Math.sin(t * 0.4 + r.phase) * 0.3,
         Math.sin(r.angle + t * r.speed) * r.dist,
       );
-      child.rotation.y = t * r.speed * 2 + i;
     });
   });
   return (
     <group ref={group}>
-      {rocks.map((r, i) => (
+      {orbs.map((r, i) => (
         <mesh key={i} scale={r.s}>
-          <octahedronGeometry args={[0.7, 0]} />
+          <sphereGeometry args={[1, 20, 20]} />
           <meshStandardMaterial
-            color={r.glow ? accent : ROCK}
-            emissive={r.glow ? accent : '#000000'}
-            emissiveIntensity={r.glow ? 1.4 : 0}
-            roughness={0.6}
-            flatShading
+            color={accent}
+            emissive={accent}
+            emissiveIntensity={1.8}
+            roughness={0.3}
+            transparent
+            opacity={0.9}
           />
         </mesh>
       ))}
@@ -243,7 +243,7 @@ const FloatingIsland = ({
 
         <Pines radius={radius} seed={seed} count={Math.round(radius * 1.6)} />
         <CrystalCluster accent={accent} seed={seed} />
-        <Shards radius={radius} seed={seed} accent={accent} />
+        <Orbs radius={radius} seed={seed} accent={accent} />
 
         {children}
       </group>

@@ -12,7 +12,7 @@ import { skillNodes } from '../data/skills';
 import { useIslands } from '../state/useIslands';
 import { useReducedMotion } from '../hooks/device';
 
-const COLORS = ['#7adeff', '#b9c2ff', '#8ac7ff'];
+const COLORS = ['#38e1ff', '#ffb35c', '#c77dff'];
 
 const Cluster = ({
   nodeId,
