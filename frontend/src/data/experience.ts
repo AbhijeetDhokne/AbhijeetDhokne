@@ -13,11 +13,11 @@ export const experience: ExperienceEntry[] = [
     location: 'Pandhurna, Madhya Pradesh, India',
     period: 'Jul 2026 – Aug 2026',
     icon: 'cpu',
-    summary: 'AI-integrated project workflows using prompt engineering, LLM tools, and AI-assisted development platforms.',
+    summary: 'AI powered project workflows using prompt engineering, LLM tools, and AI assisted development platforms.',
     bullets: [
-      'Applied design-to-code workflows with AI-assisted development platforms',
+      'Applied design to code workflows with AI assisted development platforms',
       'Explored local LLM setups using Ollama',
-      'Prototyped AI-assisted builds with Google AI Studio',
+      'Prototyped AI assisted builds with Google AI Studio',
     ],
     techStack: ['Prompt Engineering', 'LLM Tools', 'Ollama', 'Google AI Studio'],
   },
@@ -31,7 +31,7 @@ export const experience: ExperienceEntry[] = [
     summary: 'AWS Cloud Foundations and Cloud Architecting: scalability, security, reliability, and cost optimization.',
     bullets: [
       'Studied AWS Cloud Foundations and Cloud Architecting',
-      'Learned scalability, reliability, and cost-optimization concepts',
+      'Learned scalability, reliability, and cost optimization concepts',
       'Covered cloud security fundamentals',
     ],
     techStack: ['AWS', 'Linux', 'Apache HTTP Server', 'Cloud Foundations', 'Cloud Architecting'],
@@ -47,7 +47,7 @@ export const experience: ExperienceEntry[] = [
     summary: 'Built HostelResolve, a hostel complaint management system digitizing workflows between students and wardens.',
     bullets: [
       'Built REST APIs with Node.js & Express.js for complaint tracking',
-      'Integrated SMTP-based automated escalation for unresolved issues',
+      'Integrated automated escalation over SMTP for unresolved issues',
       'Designed responsive React UI for students and hostel administration',
     ],
     techStack: ['React', 'Node.js', 'MongoDB', 'SMTP', 'Express.js'],

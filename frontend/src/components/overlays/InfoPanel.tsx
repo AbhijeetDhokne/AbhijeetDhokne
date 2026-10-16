@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowUpRight, CheckCircle2, Code2, ExternalLink,
-  FileText, Github, Mail, X,
+  FileText, Github, GraduationCap, Mail, X,
 } from 'lucide-react';
 import { useIslands } from '../../state/useIslands';
 import { projectById } from '../../data/projects';
@@ -101,10 +101,8 @@ const SkillNodeDetail = ({ id }: { id: string }) => {
 const ExperienceDetail = ({ id }: { id: string }) => {
   const entry = experience.find((e) => e.id === id);
   if (!entry) return <p className="info-empty">Unknown role.</p>;
-  const position = experience.findIndex((e) => e.id === id) + 1;
   return (
     <div>
-      <p className="meta-label">Verified role {position} of {experience.length} · most recent first</p>
       <div className="info-job">
         <h2 className="info-title">{entry.role}</h2>
         <p className="info-lede">{entry.org} · {entry.period}</p>
@@ -118,16 +116,6 @@ const ExperienceDetail = ({ id }: { id: string }) => {
           {entry.techStack.map((t) => <Chip key={t}>{t}</Chip>)}
         </div>
       </div>
-      <h3 className="info-h3">All roles</h3>
-      <div className="info-edu">
-        {experience.map((e) => (
-          <div key={e.id} className="info-box">
-            <p className="info-skill-name">{e.role}</p>
-            <p className="info-body">{e.org}</p>
-            <p className="info-period">{e.period}</p>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
@@ -137,13 +125,19 @@ const EducationDetail = () => (
     <p className="meta-label">Verified schooling</p>
     <h2 className="info-title">Education</h2>
     <div className="info-edu">
-      {education.map((e) => (
-        <div key={e.id} className="info-box">
-          <p className="info-skill-name">{e.degree}</p>
-          <p className="info-body">{e.school}</p>
-          <p className="info-period">{e.period}</p>
-          <p className="info-body">{e.detail}</p>
-        </div>
+      {education.map((e, i) => (
+        <article key={e.id} className="edu-card">
+          <span className="edu-index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <div className="edu-top">
+            <span className="edu-tile">
+              <GraduationCap size={16} aria-hidden="true" />
+            </span>
+            <p className="edu-degree">{e.degree}</p>
+          </div>
+          <p className="edu-school">{e.school}</p>
+          <span className="edu-period">{e.period}</span>
+          <p className="edu-detail">{e.detail}</p>
+        </article>
       ))}
     </div>
     <h3 className="info-h3">Certificates</h3>
@@ -156,7 +150,7 @@ const EducationDetail = () => (
             rel="noopener noreferrer"
             className="info-cert"
           >
-            {c.title} — {c.org} <ArrowUpRight size={13} aria-hidden="true" />
+            {c.title} ({c.org}) <ArrowUpRight size={13} aria-hidden="true" />
           </a>
         </li>
       ))}
@@ -166,7 +160,6 @@ const EducationDetail = () => (
 
 const HomeDetail = () => (
   <div>
-    <p className="meta-label">Home island · Where the journey begins</p>
     <h2 className="info-title">{profile.name}</h2>
     <p className="info-lede">{profile.title} · {profile.location}</p>
     {profile.about.map((para) => (

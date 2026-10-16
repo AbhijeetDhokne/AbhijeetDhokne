@@ -11,7 +11,7 @@ export const islands: IslandDefinition[] = [
     label: 'Home',
     tagline: 'Where the journey begins',
     description:
-      'Central starting island. Meet Abhijeet Dhokne and choose a destination across the archipelago.',
+      'The heart of the archipelago. Meet Abhijeet Dhokne and chart a course across his work.',
     accent: '#7adeff',
     sectionId: 'intro',
     position: [0, 0, 0],
@@ -24,7 +24,7 @@ export const islands: IslandDefinition[] = [
     label: 'Projects',
     tagline: 'Real builds, real stakes',
     description:
-      'Two flagship builds — HostelResolve and Hostmate — plus frontend studies, each in its own structure.',
+      'Two flagship builds, HostelResolve and Hostmate, plus frontend studies, each in its own structure.',
     accent: '#7adeff',
     sectionId: 'projects',
     position: [26, 3, -6],
@@ -37,7 +37,7 @@ export const islands: IslandDefinition[] = [
     label: 'Skills',
     tagline: 'Crystal archive of the craft',
     description:
-      'Languages, frameworks, databases, and tools as interactive crystal formations. No proficiency percentages — areas of verified work.',
+      'Languages, frameworks, databases, and tools as interactive crystal formations: a showcase of verified, production tested craft.',
     accent: '#b9c2ff',
     sectionId: 'skills',
     position: [-26, 4, -8],
@@ -48,9 +48,9 @@ export const islands: IslandDefinition[] = [
   {
     id: 'journey',
     label: 'Journey',
-    tagline: 'Study and credentials',
+    tagline: 'Education and credentials',
     description:
-      'Education history and certificates — schools, degrees, and verified credentials.',
+      'Education history and certificates: schools, degrees, and verified credentials.',
     accent: '#8ac7ff',
     sectionId: 'education',
     position: [12, -2, -30],
@@ -61,9 +61,9 @@ export const islands: IslandDefinition[] = [
   {
     id: 'experience',
     label: 'Experience',
-    tagline: 'Roles in sorted order',
+    tagline: 'Professional experience',
     description:
-      'Verified work roles, most recent first — AI development, cloud training, and MERN product work.',
+      'Verified professional roles, most recent first: AI engineering, cloud training, and MERN product work.',
     accent: '#7adeff',
     sectionId: 'experience',
     position: [0, 8, -52],

@@ -6,17 +6,16 @@ const base = import.meta.env.BASE_URL;
 
 export const profile = {
   name: 'Abhijeet Dhokne',
-  title: 'Full Stack Developer',
-  tagline: 'Computer Science engineer forging efficient, scalable systems and engaging digital experiences.',
-  location: 'RAU, Indore, Madhya Pradesh, India',
+  title: 'Software Engineer',
+  tagline: 'Software Engineer crafting scalable, efficient web applications that put users first, from robust backends to seamless interfaces.',
+  location: 'India',
   email: 'abhijeetdhokne1474@gmail.com',
   resumePath: `${base}resume/Resume.pdf`,
   portrait: `${base}images/my-profile.jpg`,
   // Third-person professional bio — verified facts only, rendered on the Home island.
   about: [
-    'Abhijeet Dhokne is a Full Stack Developer and Computer Science engineer based in Indore, India. He designs and builds efficient, scalable web systems with a focus on clean architecture and engaging user experiences.',
-    'He works across the MERN stack — React, Node.js, Express.js, and MongoDB — and has shipped real products including HostelResolve, a hostel complaint management system, and Hostmate, a rental marketplace with verified payment flows.',
-    'His experience spans AI-assisted development workflows, AWS cloud foundations, and MERN product work. He values transparency, reliability, and code that holds up in production.',
+    'Abhijeet Dhokne is a Software Engineer specializing in building scalable, efficient web applications that put users first. He develops robust frontend and backend systems, focusing on clean architecture, maintainable code, and seamless user experiences.',
+    'His projects include HostelResolve, a hostel complaint management system, and Hostmate, a rental marketplace with integrated payment functionality. His technical expertise spans full stack development, AI integration, AWS, and modern software engineering practices, with an emphasis on reliability, performance, and production ready solutions.',
   ],
 };
 
@@ -32,7 +31,7 @@ export const certificates = [
     id: 'python-iitb',
     title: 'Python 3.4.3 Training',
     org: 'EduPyramids, SINE, IIT Bombay',
-    detail: 'Remote programming test — verified PDF in certificates archive.',
+    detail: 'Remote programming test. Verified PDF in certificates archive.',
     file: 'Certificate for the Completion of python-tarining.pdf',
   },
   {

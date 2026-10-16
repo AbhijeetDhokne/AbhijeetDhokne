@@ -42,8 +42,8 @@ const UniverseView = () => {
       <div className="world-root">
         <p className="webgl-note" role="status">
           This portfolio is a 3D universe and needs WebGL, which is unavailable
-          on this device or browser. Please visit on a WebGL-enabled browser —
-          or reach Abhijeet directly at abhijeetdhokne1474@gmail.com.
+          on this device or browser. Please visit on a WebGL-enabled browser.
+          You can also reach Abhijeet directly at abhijeetdhokne1474@gmail.com.
         </p>
       </div>
     );

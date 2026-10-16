@@ -4,9 +4,9 @@
 
 import { FileText } from 'lucide-react';
 import { useIslands } from '../../state/useIslands';
-import { projects } from '../../data/projects';
 import { skillNodes } from '../../data/skills';
-import { experience } from '../../data/experience';
+import ProjectSelect from './ProjectSelect';
+import ExperienceSelect from './ExperienceSelect';
 
 const ActionButton = ({ label, onClick, active }: { label: string; onClick: () => void; active?: boolean }) => (
   <button
@@ -37,14 +37,7 @@ const DestinationActions = () => {
           </button>
         </>
       )}
-      {current === 'projects' && projects.map((p) => (
-        <ActionButton
-          key={p.id}
-          label={p.title}
-          active={selection?.type === 'project' && selection.id === p.id}
-          onClick={() => select({ type: 'project', id: p.id })}
-        />
-      ))}
+      {current === 'projects' && <ProjectSelect />}
       {current === 'skills' && skillNodes.map((n) => (
         <ActionButton
           key={n.id}
@@ -60,14 +53,7 @@ const DestinationActions = () => {
           onClick={() => select({ type: 'education' })}
         />
       )}
-      {current === 'experience' && experience.map((e) => (
-        <ActionButton
-          key={e.id}
-          label={e.role}
-          active={selection?.type === 'experience' && selection.id === e.id}
-          onClick={() => select({ type: 'experience', id: e.id })}
-        />
-      ))}
+      {current === 'experience' && <ExperienceSelect />}
       {current === 'contact' && (
         <ActionButton
           label="Open contact channels"
