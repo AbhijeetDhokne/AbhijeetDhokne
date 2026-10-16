@@ -49,9 +49,6 @@ const HeroOverlay = () => {
           <button type="button" className="primary-button hero-cta" onClick={begin} autoFocus>
             <Rocket size={16} aria-hidden="true" /> Enter Universe
           </button>
-          <a className="secondary-button" href={`mailto:${profile.email}`}>
-            Contact directly
-          </a>
         </div>
       </motion.div>
     </motion.div>
