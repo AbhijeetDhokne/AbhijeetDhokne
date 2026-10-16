@@ -1,10 +1,10 @@
-// Persistent world chrome: monogram home button, island-map menu with a
-// visible current-destination indicator, skip-flight control, text-version
-// toggle, and keyboard shortcuts (1–6 travel, H home, Esc closes panels).
+// Persistent world chrome: monogram home button, skip-flight control, ambient
+// sound toggle, and keyboard shortcuts (1–6 travel, H home, Esc closes panels).
+// Current position is shown by the left-side PositionBeacon, not a button map.
 
 import { useEffect, useState } from 'react';
-import { Compass, Volume2, VolumeX } from 'lucide-react';
-import { islands, NAV_ORDER } from '../../data/navigation';
+import { Volume2, VolumeX } from 'lucide-react';
+import { NAV_ORDER } from '../../data/navigation';
 import { useIslands } from '../../state/useIslands';
 import { ambient } from '../../audio/ambient';
 
@@ -12,7 +12,7 @@ const SHORTCUTS: Record<string, number> = { '1': 0, '2': 1, '3': 2, '4': 3, '5':
 
 const IslandNav = () => {
   const {
-    current, requestTravel, returnHome, traveling, requestSkip, select,
+    traveling, requestTravel, returnHome, requestSkip, select,
   } = useIslands();
   const [soundOn, setSoundOn] = useState(false);
 
@@ -46,9 +46,6 @@ const IslandNav = () => {
     return () => window.removeEventListener('keydown', onKey);
   }, [requestTravel, returnHome, select]);
 
-  const currentLabel =
-    current === 'overview' ? 'Overlook' : islands.find((i) => i.id === current)?.label ?? 'Overlook';
-
   return (
     <header className="world-nav" role="banner">
       <button type="button" className="world-brand" onClick={returnHome} aria-label="Return to Home island">
@@ -56,36 +53,15 @@ const IslandNav = () => {
         <span className="world-brand-text">Abhijeet Dhokne</span>
       </button>
 
-      <nav aria-label="Island map" className="world-map">
-        {islands.map((isl, i) => {
-          const active = current === isl.id;
-          return (
-            <button
-              key={isl.id}
-              type="button"
-              onClick={() => requestTravel(isl.id)}
-              aria-current={active ? 'location' : undefined}
-              title={`${isl.label} (press ${i + 1})`}
-              className={`world-map-btn${active ? ' is-active' : ''}`}
-            >
-              <span className="world-map-dot" style={{ background: isl.accent }} aria-hidden="true" />
-              {isl.label}
-            </button>
-          );
-        })}
-      </nav>
+      <span className="world-nav-spacer" aria-hidden="true" />
 
-      <div className="world-status" role="status" aria-live="polite">
-        <Compass size={14} aria-hidden="true" />
-        <span>
-          {traveling ? 'Travelling…' : currentLabel}
-        </span>
-        {traveling && (
+      {traveling && (
+        <div className="world-status" role="status" aria-live="polite">
           <button type="button" className="world-skip" onClick={requestSkip}>
             Skip flight
           </button>
-        )}
-      </div>
+        </div>
+      )}
 
       <div className="world-actions">
         <button

@@ -33,6 +33,7 @@ export const IslandProvider = ({ children }: { children: ReactNode }) => {
   const [traveling, setTraveling] = useState(false);
   const [skipNonce, setSkipNonce] = useState(0);
   const [selection, setSelection] = useState<Selection>(null);
+  const [resumeOpen, setResumeOpen] = useState(false);
   const [webglFailed, setWebglFailed] = useState(false);
 
   useEffect(() => write('islands:entered', entered), [entered]);
@@ -64,8 +65,9 @@ export const IslandProvider = ({ children }: { children: ReactNode }) => {
       current, travelRequest, requestTravel, markArrived,
       traveling, setTraveling, skipNonce, requestSkip,
       selection, select, webglFailed, setWebglFailed,
+      resumeOpen, setResumeOpen,
     }),
-    [entered, current, travelRequest, traveling, skipNonce, selection,
+    [entered, current, travelRequest, traveling, skipNonce, selection, resumeOpen,
       enter, returnHome, requestTravel, markArrived, requestSkip, select, webglFailed],
   );
 

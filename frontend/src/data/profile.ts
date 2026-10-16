@@ -10,8 +10,14 @@ export const profile = {
   tagline: 'Computer Science engineer forging efficient, scalable systems and engaging digital experiences.',
   location: 'RAU, Indore, Madhya Pradesh, India',
   email: 'abhijeetdhokne1474@gmail.com',
-  resumePath: `${base}resume/resume_1.pdf`,
+  resumePath: `${base}resume/Resume.pdf`,
   portrait: `${base}images/my-profile.jpg`,
+  // Third-person professional bio — verified facts only, rendered on the Home island.
+  about: [
+    'Abhijeet Dhokne is a Full Stack Developer and Computer Science engineer based in Indore, India. He designs and builds efficient, scalable web systems with a focus on clean architecture and engaging user experiences.',
+    'He works across the MERN stack — React, Node.js, Express.js, and MongoDB — and has shipped real products including HostelResolve, a hostel complaint management system, and Hostmate, a rental marketplace with verified payment flows.',
+    'His experience spans AI-assisted development workflows, AWS cloud foundations, and MERN product work. He values transparency, reliability, and code that holds up in production.',
+  ],
 };
 
 export const socials: Social[] = [

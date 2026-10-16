@@ -99,6 +99,7 @@ export interface TravelRequest {
 }
 
 export type Selection =
+  | { type: 'home' }
   | { type: 'project'; id: string }
   | { type: 'skill-node'; id: string }
   | { type: 'experience'; id: string }
@@ -122,6 +123,9 @@ export interface IslandState {
   requestSkip: () => void;
   selection: Selection;
   select: (s: Selection) => void;
+  /** In-site resume viewer overlay (PDF opens inside the portfolio, not a new tab). */
+  resumeOpen: boolean;
+  setResumeOpen: (v: boolean) => void;
   webglFailed: boolean;
   setWebglFailed: (v: boolean) => void;
 }

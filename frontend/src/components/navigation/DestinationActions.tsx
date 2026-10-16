@@ -2,12 +2,11 @@
 // (project halls, crystal clusters, monoliths, portal) gets a keyboard-
 // reachable button here, so no content depends on clicking 3D objects.
 
-import { Mail, FileText, Github } from 'lucide-react';
+import { FileText } from 'lucide-react';
 import { useIslands } from '../../state/useIslands';
 import { projects } from '../../data/projects';
 import { skillNodes } from '../../data/skills';
 import { experience } from '../../data/experience';
-import { profile, socials } from '../../data/profile';
 
 const ActionButton = ({ label, onClick, active }: { label: string; onClick: () => void; active?: boolean }) => (
   <button
@@ -21,24 +20,21 @@ const ActionButton = ({ label, onClick, active }: { label: string; onClick: () =
 );
 
 const DestinationActions = () => {
-  const { current, selection, select } = useIslands();
+  const { current, selection, select, setResumeOpen } = useIslands();
   if (current === 'overview') return null;
 
   return (
-    <nav aria-label={`${current} details`} className="dest-actions" data-ui-scroll="true">
+    <nav id="island-actions" aria-label={`${current} details`} className="dest-actions" data-ui-scroll="true">
       {current === 'home' && (
         <>
-          <a className="dest-action" href={`mailto:${profile.email}`}>
-            <Mail size={13} aria-hidden="true" /> Email
-          </a>
-          <a className="dest-action" href={profile.resumePath} target="_blank" rel="noopener noreferrer">
-            <FileText size={13} aria-hidden="true" /> Résumé
-          </a>
-          {socials.filter((s) => s.id === 'github').map((s) => (
-            <a key={s.id} className="dest-action" href={s.url} target="_blank" rel="noopener noreferrer">
-              <Github size={13} aria-hidden="true" /> GitHub
-            </a>
-          ))}
+          <ActionButton
+            label="About Abhijeet"
+            active={selection?.type === 'home'}
+            onClick={() => select({ type: 'home' })}
+          />
+          <button type="button" className="dest-action" onClick={() => setResumeOpen(true)}>
+            <FileText size={13} aria-hidden="true" /> Resume
+          </button>
         </>
       )}
       {current === 'projects' && projects.map((p) => (

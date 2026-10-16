@@ -320,57 +320,8 @@ a {
   text-transform: uppercase;
 }
 
-.world-map {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-inline: auto;
-  padding: 0.35rem;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: rgba(8, 15, 25, 0.6);
-  backdrop-filter: blur(12px);
-  max-width: 100%;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.world-map::-webkit-scrollbar {
-  display: none;
-}
-
-.world-map-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.5rem 0.85rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  background: transparent;
-  color: #c6d5e2;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.world-map-btn:hover {
-  border-color: rgba(122, 222, 255, 0.35);
-  color: #fff;
-}
-
-.world-map-btn.is-active {
-  border-color: rgba(122, 222, 255, 0.6);
-  background: rgba(122, 222, 255, 0.12);
-  color: #fff;
-}
-
-.world-map-dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 999px;
-  box-shadow: 0 0 8px currentColor;
+.world-nav-spacer {
+  flex: 1;
 }
 
 .world-status {
@@ -435,6 +386,62 @@ a {
   border-radius: 999px;
   white-space: nowrap;
   pointer-events: none;
+}
+
+/* --- left-side position beacon ("you are here") --- */
+
+.position-beacon {
+  position: absolute;
+  z-index: 30;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 4.6rem;
+  max-width: 7rem;
+  padding: 0.8rem 0.6rem;
+  border: 1px solid rgba(122, 222, 255, 0.3);
+  border-radius: 1rem;
+  background: rgba(8, 15, 25, 0.72);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  pointer-events: none;
+}
+
+.position-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.position-dot.is-traveling {
+  animation: position-pulse 0.9s ease-in-out infinite;
+}
+
+@keyframes position-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.position-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.position-caption {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(168, 186, 200, 0.75);
 }
 
 /* --- 3D beacon labels (drei Html) --- */
@@ -903,6 +910,69 @@ a {
   color: #fff;
 }
 
+/* --- in-site resume viewer --- */
+
+.resume-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  background: rgba(5, 11, 20, 0.78);
+  backdrop-filter: blur(6px);
+}
+
+.resume-card {
+  width: min(56rem, 100%);
+  height: min(46rem, calc(100dvh - 4rem));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(13, 22, 33, 0.96), rgba(9, 17, 26, 0.97));
+  border: 1px solid rgba(122, 222, 255, 0.3);
+  border-radius: 1.5rem;
+  box-shadow: 0 32px 90px rgba(2, 8, 18, 0.65);
+}
+
+.resume-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.resume-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.resume-frame {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  background: #fff;
+}
+
+.resume-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 2rem;
+  text-align: center;
+  color: #c6d5e2;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
 /* --- small screens --- */
 
 @media (max-width: 760px) {
@@ -938,5 +1008,16 @@ a {
     bottom: auto;
     top: 4rem;
     max-width: calc(100vw - 2rem);
+  }
+
+  .position-beacon {
+    left: 0.6rem;
+    min-width: 3.8rem;
+    max-width: 5.4rem;
+    padding: 0.6rem 0.45rem;
+  }
+
+  .position-caption {
+    display: none;
   }
 }

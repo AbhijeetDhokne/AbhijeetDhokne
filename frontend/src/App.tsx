@@ -8,16 +8,18 @@ import { IslandProvider } from './state/islands';
 import { useIslands } from './state/useIslands';
 import { isWebGLAvailable } from './hooks/device';
 import IslandNav from './components/navigation/IslandNav';
+import PositionBeacon from './components/navigation/PositionBeacon';
 import DestinationActions from './components/navigation/DestinationActions';
 import HeroOverlay from './components/overlays/HeroOverlay';
 import InfoPanel from './components/overlays/InfoPanel';
+import ResumeViewer from './components/overlays/ResumeViewer';
 import LoadingScreen from './components/overlays/LoadingScreen';
 import ErrorBoundary from './components/shell/ErrorBoundary';
 
 const WorldCanvas = lazy(() => import('./world/WorldCanvas'));
 
-const focusIslandMap = () => {
-  const first = document.querySelector<HTMLButtonElement>('.world-map-btn');
+const focusIslandActions = () => {
+  const first = document.querySelector<HTMLButtonElement>('.dest-action');
   first?.focus();
 };
 
@@ -50,14 +52,14 @@ const UniverseView = () => {
   return (
     <div className="world-root">
       <a
-        href="#island-map"
+        href="#island-actions"
         className="skip-link"
         onClick={(e) => {
           e.preventDefault();
-          focusIslandMap();
+          focusIslandActions();
         }}
       >
-        Skip to island navigation
+        Skip to island actions
       </a>
 
       <div className="world-canvas-wrap" aria-hidden={!entered}>
@@ -66,14 +68,18 @@ const UniverseView = () => {
         </Suspense>
       </div>
 
-      <div id="island-map">
+      <div id="island-nav">
         <IslandNav />
       </div>
+
+      {entered && <PositionBeacon />}
 
       <AnimatePresence>{!entered && ready && <HeroOverlay />}</AnimatePresence>
       <AnimatePresence>{!ready && <LoadingScreen ready={ready} />}</AnimatePresence>
 
       {entered && <InfoPanel />}
+
+      <ResumeViewer />
 
       {entered && <DestinationActions />}
 

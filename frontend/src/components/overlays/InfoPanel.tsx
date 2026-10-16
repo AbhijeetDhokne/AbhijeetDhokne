@@ -25,6 +25,16 @@ const LinkRow = ({ href, icon, label }: { href: string; icon: React.ReactNode; l
   </a>
 );
 
+/** Opens the PDF inside the site (ResumeViewer overlay), never a new tab. */
+const ResumeButton = () => {
+  const { setResumeOpen } = useIslands();
+  return (
+    <button type="button" className="secondary-button info-link" onClick={() => setResumeOpen(true)}>
+      <FileText size={14} aria-hidden="true" /> View Resume
+    </button>
+  );
+};
+
 const ProjectDetail = ({ id }: { id: string }) => {
   const p = projectById(id);
   if (!p) return <p className="info-empty">Unknown project.</p>;
@@ -154,6 +164,29 @@ const EducationDetail = () => (
   </div>
 );
 
+const HomeDetail = () => (
+  <div>
+    <p className="meta-label">Home island · Where the journey begins</p>
+    <h2 className="info-title">{profile.name}</h2>
+    <p className="info-lede">{profile.title} · {profile.location}</p>
+    {profile.about.map((para) => (
+      <p key={para.slice(0, 24)} className="info-body">{para}</p>
+    ))}
+    <div className="info-links">
+      <a href={`mailto:${profile.email}`} className="primary-button info-link">
+        <Mail size={14} aria-hidden="true" /> {profile.email}
+      </a>
+      <ResumeButton />
+    </div>
+    <h3 className="info-h3">Professional profiles</h3>
+    <div className="info-links">
+      {socials.map((s) => (
+        <LinkRow key={s.id} href={s.url} icon={<Code2 size={14} />} label={s.label} />
+      ))}
+    </div>
+  </div>
+);
+
 const ContactDetail = () => (
   <div>
     <p className="meta-label">Final destination</p>
@@ -165,9 +198,7 @@ const ContactDetail = () => (
       <a href={`mailto:${profile.email}`} className="primary-button info-link">
         <Mail size={14} aria-hidden="true" /> {profile.email}
       </a>
-      <a href={profile.resumePath} target="_blank" rel="noopener noreferrer" className="secondary-button info-link">
-        <FileText size={14} aria-hidden="true" /> Download résumé
-      </a>
+      <ResumeButton />
     </div>
     <h3 className="info-h3">Professional profiles</h3>
     <div className="info-links">
@@ -211,6 +242,7 @@ const InfoPanel = () => {
           >
             <X size={16} aria-hidden="true" />
           </button>
+          {selection.type === 'home' && <HomeDetail />}
           {selection.type === 'project' && <ProjectDetail id={selection.id} />}
           {selection.type === 'skill-node' && <SkillNodeDetail id={selection.id} />}
           {selection.type === 'experience' && <ExperienceDetail id={selection.id} />}
