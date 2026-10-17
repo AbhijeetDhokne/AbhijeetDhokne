@@ -14,6 +14,7 @@ import HeroOverlay from './components/overlays/HeroOverlay';
 import InfoPanel from './components/overlays/InfoPanel';
 import ResumeViewer from './components/overlays/ResumeViewer';
 import LoadingScreen from './components/overlays/LoadingScreen';
+import GojoChat from './components/chat/GojoChat';
 import ErrorBoundary from './components/shell/ErrorBoundary';
 
 const WorldCanvas = lazy(() => import('./world/WorldCanvas'));
@@ -82,6 +83,8 @@ const UniverseView = () => {
       <ResumeViewer />
 
       {entered && <DestinationActions />}
+
+      {entered && <GojoChat />}
 
       {entered && (
         <footer className="world-hint" aria-hidden="true">

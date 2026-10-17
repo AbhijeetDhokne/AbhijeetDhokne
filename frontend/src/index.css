@@ -628,7 +628,7 @@ a {
   z-index: 45;
   top: 4.5rem;
   right: 1rem;
-  bottom: 3.5rem;
+  bottom: 5.25rem;
   width: min(26rem, calc(100vw - 2rem));
   overflow-y: auto;
   background: linear-gradient(180deg, rgba(13, 22, 33, 0.92), rgba(9, 17, 26, 0.95));
@@ -1187,7 +1187,7 @@ a {
     top: auto;
     right: 0.6rem;
     left: 0.6rem;
-    bottom: 0.6rem;
+    bottom: 4.75rem;
     width: auto;
     max-height: 52dvh;
     border-radius: 1.25rem;
@@ -1217,5 +1217,326 @@ a {
   .picker-menu {
     bottom: auto;
     top: calc(100% + 0.6rem);
+  }
+}
+
+/* --- GOJO — bottom-right portfolio guide chat --- */
+
+.gojo-root {
+  position: absolute;
+  z-index: 47;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.7rem;
+}
+
+.gojo-launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 1rem 0.5rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(122, 222, 255, 0.55);
+  background: linear-gradient(135deg, rgba(13, 30, 44, 0.94), rgba(9, 17, 26, 0.96));
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 16px 40px rgba(2, 8, 18, 0.55), 0 0 22px rgba(122, 222, 255, 0.25);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.gojo-launcher:hover {
+  transform: translateY(-2px);
+  border-color: #7adeff;
+  box-shadow: 0 20px 46px rgba(2, 8, 18, 0.6), 0 0 30px rgba(122, 222, 255, 0.4);
+}
+
+.gojo-launcher-symbol,
+.gojo-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: radial-gradient(circle at 32% 28%, #bfe7ff, #4fa6e8 58%, #2456a8);
+  color: #06131d;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.gojo-launcher-symbol {
+  width: 2.15rem;
+  height: 2.15rem;
+  font-size: 1.35rem;
+  box-shadow: 0 0 14px rgba(122, 222, 255, 0.45), inset 0 0 6px rgba(255, 255, 255, 0.35);
+}
+
+.gojo-launcher-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.gojo-panel {
+  width: min(23rem, calc(100vw - 1.6rem));
+  max-height: min(32rem, calc(100dvh - 7rem));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(122, 222, 255, 0.3);
+  border-radius: 1.4rem;
+  background: linear-gradient(180deg, rgba(13, 22, 33, 0.95), rgba(9, 17, 26, 0.97));
+  backdrop-filter: blur(16px);
+  box-shadow: 0 28px 80px rgba(2, 8, 18, 0.65);
+}
+
+.gojo-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 0.9rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  background: radial-gradient(circle at top right, rgba(122, 222, 255, 0.12), transparent 60%);
+}
+
+.gojo-avatar {
+  flex-shrink: 0;
+  width: 2.3rem;
+  height: 2.3rem;
+  font-size: 1.45rem;
+  box-shadow: 0 0 12px rgba(122, 222, 255, 0.35);
+}
+
+.gojo-head-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.gojo-title {
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: #fff;
+}
+
+.gojo-subtitle {
+  font-size: 0.68rem;
+  color: #9fd8ff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gojo-close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: rgba(8, 15, 25, 0.7);
+  color: #fff;
+  cursor: pointer;
+}
+
+.gojo-messages {
+  flex: 1;
+  min-height: 12rem;
+  overflow-y: auto;
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gojo-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-start;
+}
+
+.gojo-row.is-visitor {
+  align-items: flex-end;
+}
+
+.gojo-bubble {
+  max-width: 92%;
+  padding: 0.65rem 0.85rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  color: #d7e3ee;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.gojo-bubble.is-visitor {
+  border-color: rgba(122, 222, 255, 0.5);
+  background: linear-gradient(135deg, rgba(122, 222, 255, 0.2), rgba(185, 194, 255, 0.14));
+  color: #fff;
+}
+
+.gojo-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.gojo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.32rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(122, 222, 255, 0.35);
+  background: rgba(122, 222, 255, 0.08);
+  color: #9fd8ff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.gojo-link:hover {
+  border-color: #7adeff;
+  color: #fff;
+}
+
+.gojo-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.gojo-suggestion {
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  border: 1px dashed rgba(122, 222, 255, 0.4);
+  background: transparent;
+  color: #c6d5e2;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.gojo-suggestion:hover {
+  border-style: solid;
+  background: rgba(122, 222, 255, 0.1);
+  color: #fff;
+}
+
+.gojo-typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 0.75rem 0.9rem;
+}
+
+.gojo-caret {
+  display: inline-block;
+  width: 0.55ch;
+  height: 0.95em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: #7adeff;
+  border-radius: 1px;
+  box-shadow: 0 0 8px rgba(122, 222, 255, 0.6);
+  animation: gojo-caret-blink 0.9s steps(1) infinite;
+}
+
+@keyframes gojo-caret-blink {
+  50% { opacity: 0; }
+}
+
+.gojo-dot {
+  width: 0.36rem;
+  height: 0.36rem;
+  border-radius: 999px;
+  background: #7adeff;
+  animation: gojo-bounce 1s ease-in-out infinite;
+}
+
+.gojo-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.gojo-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes gojo-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-3px); opacity: 1; }
+}
+
+.gojo-form {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.7rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.gojo-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.62rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(8, 15, 25, 0.65);
+  color: var(--color-text);
+  font-size: 0.84rem;
+  font-family: var(--font-body);
+}
+
+.gojo-input::placeholder {
+  color: #7d8fa1;
+}
+
+.gojo-input:focus {
+  outline: none;
+  border-color: rgba(122, 222, 255, 0.6);
+}
+
+.gojo-send {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 999px;
+  border: 0;
+  background: linear-gradient(135deg, rgba(122, 222, 255, 0.94), rgba(185, 194, 255, 0.9));
+  color: #07141d;
+  cursor: pointer;
+}
+
+.gojo-send:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+@media (max-width: 760px) {
+  .gojo-root {
+    right: 0.7rem;
+    bottom: 0.7rem;
+  }
+
+  .gojo-launcher {
+    padding: 0.5rem;
+  }
+
+  .gojo-launcher-label {
+    display: none;
+  }
+
+  .gojo-panel {
+    max-height: min(30rem, calc(100dvh - 6.5rem));
   }
 }
