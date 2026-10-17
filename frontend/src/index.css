@@ -1246,6 +1246,9 @@ a {
   backdrop-filter: blur(12px);
   box-shadow: 0 16px 40px rgba(2, 8, 18, 0.55), 0 0 22px rgba(122, 222, 255, 0.25);
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .gojo-launcher:hover {
@@ -1438,22 +1441,6 @@ a {
   padding: 0.75rem 0.9rem;
 }
 
-.gojo-caret {
-  display: inline-block;
-  width: 0.55ch;
-  height: 0.95em;
-  margin-left: 2px;
-  vertical-align: text-bottom;
-  background: #7adeff;
-  border-radius: 1px;
-  box-shadow: 0 0 8px rgba(122, 222, 255, 0.6);
-  animation: gojo-caret-blink 0.9s steps(1) infinite;
-}
-
-@keyframes gojo-caret-blink {
-  50% { opacity: 0; }
-}
-
 .gojo-dot {
   width: 0.36rem;
   height: 0.36rem;
@@ -1490,6 +1477,7 @@ a {
   border: 1px solid rgba(148, 163, 184, 0.25);
   background: rgba(8, 15, 25, 0.65);
   color: var(--color-text);
+  caret-color: #7adeff;
   font-size: 0.84rem;
   font-family: var(--font-body);
 }

@@ -38,7 +38,6 @@ const GojoChat = () => {
   const timersRef = useRef<number[]>([]);
   const intervalsRef = useRef<number[]>([]);
   const rootRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(
@@ -50,13 +49,23 @@ const GojoChat = () => {
   );
 
   useEffect(() => {
-    if (open) inputRef.current?.focus();
-  }, [open]);
-
-  useEffect(() => {
     const list = listRef.current;
     if (list) list.scrollTop = list.scrollHeight;
   }, [messages, typing, open, visibleChars]);
+
+  /** Never unmount a focused input: browsers (esp. mobile) otherwise leave a
+   *  blinking caret ghost floating over the launcher button after closing. */
+  useEffect(() => {
+    if (open) return;
+    const active = document.activeElement;
+    if (
+      active instanceof HTMLElement &&
+      rootRef.current?.contains(active) &&
+      (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable)
+    ) {
+      active.blur();
+    }
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -177,10 +186,7 @@ const GojoChat = () => {
                   <div key={m.id} className={`gojo-row${m.from === 'visitor' ? ' is-visitor' : ''}`}>
                     <div className={`gojo-bubble${m.from === 'visitor' ? ' is-visitor' : ''}`}>
                       {isStreaming ? (
-                        <>
-                          <span aria-hidden="true">{m.text.slice(0, visibleChars)}</span>
-                          <span className="gojo-caret" aria-hidden="true" />
-                        </>
+                        <span aria-hidden="true">{m.text.slice(0, visibleChars)}</span>
                       ) : (
                         m.text
                       )}
@@ -231,7 +237,6 @@ const GojoChat = () => {
               }}
             >
               <input
-                ref={inputRef}
                 className="gojo-input"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
