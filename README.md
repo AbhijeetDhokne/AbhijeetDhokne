@@ -15,7 +15,7 @@
 > mindset:   understand deeply, build pragmatically, improve continuously
 ```
 
-I build practical web applications from interface to deployment. My engineering interests span MERN development, Java and Spring Boot, databases, Docker, cloud infrastructure, CI/CD, and applied AI.
+I build practical web applications from interface to deployment. My engineering interests span MERN development, Java, databases, Docker, cloud infrastructure, CI/CD, and Applied AI Engineering.
 
 ---
 
@@ -33,7 +33,7 @@ I build practical web applications from interface to deployment. My engineering 
 
 ### Backend Development
 <div align="center">
-<img src="https://skillicons.dev/icons?i=nodejs,express,spring&theme=dark" alt="Node.js, Express.js and Spring Boot"/>
+<img src="https://skillicons.dev/icons?i=nodejs,express&theme=dark" alt="Node.js and Express.js"/>
 </div>
 
 ### Databases
