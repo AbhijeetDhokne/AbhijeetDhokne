@@ -69,7 +69,7 @@ I'm a Software Developer passionate about building scalable applications, develo
 <div align="center">
 
 <a href="https://leetcode.com/u/AbhijeetDhokne/">
-  <img src="https://leetcard.jacoblin.cool/AbhijeetDhokne?theme=dark&amp;font=JetBrains%20Mono&amp;ext=contest" alt="LeetCode statistics for AbhijeetDhokne" width="100%" />
+  <img src="https://leetcard.jacoblin.cool/AbhijeetDhokne?theme=dark&amp;font=JetBrains%20Mono" alt="LeetCode statistics for AbhijeetDhokne" width="500" />
 </a>
 
 </div>
