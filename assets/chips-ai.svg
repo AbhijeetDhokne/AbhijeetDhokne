@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="52" viewBox="0 0 200 52" font-family="'JetBrains Mono','Fira Code',ui-monospace,SFMono-Regular,Consolas,'Courier New',monospace">
-<rect width="200" height="52" rx="5" fill="#070a07"/>
-<rect width="200" height="20" rx="5" fill="#0d120d"/><rect y="10" width="200" height="8" fill="#0d120d"/>
-<circle cx="12" cy="10" r="2.5" fill="#39ff14"/><circle cx="22" cy="10" r="2.5" fill="#8a5cff"/><circle cx="32" cy="10" r="2.5" fill="#5a665a"/>
-<text x="42" y="14" font-size="9" fill="#5a665a">~/chips/ai</text>
-<text x="14" y="36" font-size="10" fill="#9aa59a">LLMs / RAG / Applied AI</text>
-<text x="14" y="46" font-size="9" fill="#5a665a">exploring machine learning</text>
-<rect x="0.5" y="0.5" width="199" height="51" rx="5" fill="none" stroke="#39ff14" stroke-width="0.5" stroke-opacity="0.25"/>
-</svg>

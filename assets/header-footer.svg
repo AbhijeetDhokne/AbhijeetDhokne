@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="60" viewBox="0 0 1000 60" font-family="'JetBrains Mono','Fira Code',ui-monospace,SFMono-Regular,Consolas,'Courier New',monospace">
-<rect width="1000" height="60" rx="6" fill="#070a07"/>
-<rect width="1000" height="24" rx="6" fill="#0d120d"/><rect y="12" width="1000" height="10" fill="#0d120d"/>
-<circle cx="18" cy="14" r="3" fill="#39ff14"/><circle cx="32" cy="14" r="3" fill="#8a5cff"/><circle cx="46" cy="14" r="3" fill="#5a665a"/>
-<text x="62" y="19" font-size="11" fill="#5a665a">06 // disconnect</text>
-<text x="32" y="42" font-size="20" font-weight="700" fill="#39ff14">TERMINATED</text>
-<rect x="32" y="46" width="120" height="1" fill="#39ff14" opacity="0.5"/>
-<rect x="0.5" y="0.5" width="999" height="59" rx="6" fill="none" stroke="#39ff14" stroke-width="0.5" stroke-opacity="0.25"/>
-</svg>

@@ -1,12 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="Abhijeet Dhokne - Full Stack Developer boot sequence banner" width="100%">
-
-<a href="https://github.com/AbhijeetDhokne">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=3200&pause=1100&color=39FF14&background=070A07&center=true&vCenter=true&repeat=true&width=900&height=46&lines=Full+Stack+Developer;Backend+Engineering;DevOps+%26+Cloud+Infrastructure;Exploring+Applied+AI;Understand.+Build.+Break.+Optimize.+Repeat." alt="Animated typing headline">
-</a>
-
-<img src="assets/status.svg" alt="System status: online. Session: active." width="100%">
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=30&duration=3600&pause=1200&color=39FF14&background=070A07&center=true&vCenter=true&repeat=true&width=900&height=80&lines=Abhijeet+Dhokne;Full+Stack+Developer;Backend+Engineering;DevOps+%26+Cloud+Infrastructure;Exploring+Applied+AI" alt="Abhijeet Dhokne - Full Stack Developer">
 
 </div>
 
@@ -23,9 +17,9 @@ Understand. Build. Break. Optimize. Repeat.
 
 > Full Stack Developer working across backend engineering, containerized delivery and cloud infrastructure, currently exploring applied AI with LLMs and RAG.
 
-<img src="assets/divider.svg" alt="" width="100%">
+---
 
-<img src="assets/header-about.svg" alt="01 about" width="100%">
+## `01 // about`
 
 ```bash
 abhijeet@sys:~$ cat capabilities.conf
@@ -45,60 +39,72 @@ abhijeet@sys:~$ cat capabilities.conf
 abhijeet@sys:~$ ./diagnostics --focus
 ```
 
-<img src="assets/diagnostics.svg" alt="System diagnostics panel listing current focus areas" width="100%">
+```text
+FRONTEND_ENGINEERING      ██████████░░░░░░░░░░  ONLINE
+BACKEND_ENGINEERING       ██████████░░░░░░░░░░  ONLINE
+CONTAINERIZATION_DEVOPS   ██████████░░░░░░░░░░  ONLINE
+CLOUD_INFRASTRUCTURE      ██████████░░░░░░░░░░  ONLINE
+CI_CD_PIPELINES           ██████████░░░░░░░░░░  ONLINE
+LLM_RAG_RESEARCH          ██████░░░░░░░░░░░░░░  EXPLORING
+```
 
-<img src="assets/divider.svg" alt="" width="100%">
+<sub>status reflects current focus areas, not proficiency ratings</sub>
 
-<img src="assets/header-arsenal.svg" alt="02 engineering arsenal" width="100%">
+---
+
+## `02 // engineering arsenal`
 
 <table>
 <tr>
-<td width="190"><code>LANGUAGES</code></td>
+<td width="180"><code>LANGUAGES</code></td>
 <td>
-<img src="https://skillicons.dev/icons?i=java,js&theme=dark" alt="Java, JavaScript"><img src="assets/chips-sql.svg" height="48" alt="SQL">
+<img src="https://skillicons.dev/icons?i=java,js&theme=dark" alt="Java, JavaScript">
+<code>SQL</code>
 </td>
 </tr>
 <tr>
-<td width="190"><code>FRONTEND</code></td>
+<td width="180"><code>FRONTEND</code></td>
 <td>
 <img src="https://skillicons.dev/icons?i=html,css,react,bootstrap,tailwind,vite&theme=dark" alt="HTML5, CSS3, React, Bootstrap, Tailwind CSS, Vite">
 </td>
 </tr>
 <tr>
-<td width="190"><code>BACKEND</code></td>
+<td width="180"><code>BACKEND</code></td>
 <td>
-<img src="https://skillicons.dev/icons?i=nodejs,express&theme=dark" alt="Node.js, Express.js"><img src="assets/chips-backend.svg" height="48" alt="REST APIs, JWT Authentication, MVC Architecture">
+<img src="https://skillicons.dev/icons?i=nodejs,express&theme=dark" alt="Node.js, Express.js">
+<code>REST APIs</code> <code>JWT</code> <code>MVC</code>
 </td>
 </tr>
 <tr>
-<td width="190"><code>DATABASES</code></td>
+<td width="180"><code>DATABASES</code></td>
 <td>
 <img src="https://skillicons.dev/icons?i=mongodb,mysql&theme=dark" alt="MongoDB, MySQL">
 </td>
 </tr>
 <tr>
-<td width="190"><code>DEVOPS / INFRA</code></td>
+<td width="180"><code>DEVOPS / INFRA</code></td>
 <td>
-<img src="https://skillicons.dev/icons?i=docker,aws,linux,jenkins,kubernetes&theme=dark" alt="Docker, AWS, Linux, Jenkins, Kubernetes"><img src="assets/chips-devops.svg" height="48" alt="Docker Compose, CI/CD">
+<img src="https://skillicons.dev/icons?i=docker,aws,linux,jenkins,kubernetes&theme=dark" alt="Docker, AWS, Linux, Jenkins, Kubernetes">
+<code>Docker Compose</code> <code>CI/CD</code>
 </td>
 </tr>
 <tr>
-<td width="190"><code>DEV TOOLS</code></td>
+<td width="180"><code>DEV TOOLS</code></td>
 <td>
 <img src="https://skillicons.dev/icons?i=git,github,postman,vscode&theme=dark" alt="Git, GitHub, Postman, VS Code">
 </td>
 </tr>
 <tr>
-<td width="190"><code>AI ENGINEERING</code></td>
+<td width="180"><code>AI ENGINEERING</code></td>
 <td>
-<img src="assets/chips-ai.svg" height="48" alt="LLMs, Retrieval-Augmented Generation, Applied AI Engineering">
+<code>LLMs</code> <code>Retrieval-Augmented Generation</code> <code>Applied AI Engineering</code>
 </td>
 </tr>
 </table>
 
-<img src="assets/divider.svg" alt="" width="100%">
+---
 
-<img src="assets/header-telemetry.svg" alt="03 github telemetry" width="100%">
+## `03 // github telemetry`
 
 <div align="center">
 
@@ -135,9 +141,13 @@ abhijeet@sys:~$ ./diagnostics --focus
 
 </div>
 
-<img src="assets/divider.svg" alt="" width="100%">
+---
 
-<img src="assets/header-snake.svg" alt="04 contribution snake" width="100%">
+## `04 // contribution journey`
+
+```bash
+abhijeet@sys:~$ snk --user AbhijeetDhokne --schedule daily   # regenerated by GitHub Actions
+```
 
 <div align="center">
 
@@ -149,49 +159,33 @@ abhijeet@sys:~$ ./diagnostics --focus
 
 </div>
 
-```bash
-abhijeet@sys:~$ snk --user AbhijeetDhokne --schedule daily   # regenerated by GitHub Actions
-```
+---
 
-<img src="assets/divider.svg" alt="" width="100%">
-
-<img src="assets/header-projects.svg" alt="05 project archive" width="100%">
+## `05 // project archive`
 
 ```bash
-abhijeet@sys:~$ ls -l ~/projects
+abhijeet@sys:~$ ls -la ~/projects
 total 5
+drwxr-xr-x   canvora/         real-time collaborative canvas
+drwxr-xr-x   hostmate/        vacation rental platform
+drwxr-xr-x   weatherapp/      react + vite weather app
+drwxr-xr-x   spotify-clone/   music streaming clone
+drwxr-xr-x   catchhive/       real-time event tracking
 ```
 
-<table>
-<tr>
-<td width="50%" align="center">
-<a href="https://github.com/AbhijeetDhokne/canvora"><img src="assets/project-canvora.svg" alt="Canvora: collaborative real-time canvas on the MERN stack with Docker and Docker Compose" width="100%"></a>
-</td>
-<td width="50%" align="center">
-<a href="https://github.com/AbhijeetDhokne/Hostmate"><img src="assets/project-hostmate.svg" alt="Hostmate: full-stack rental platform with maps, Razorpay, AWS and Redis" width="100%"></a>
-</td>
-</tr>
-<tr>
-<td width="50%" align="center">
-<a href="https://github.com/AbhijeetDhokne/weatherapp"><img src="assets/project-weatherapp.svg" alt="WeatherApp: React.js and Vite" width="100%"></a>
-</td>
-<td width="50%" align="center">
-<a href="https://github.com/AbhijeetDhokne/spotify-clone"><img src="assets/project-spotify-clone.svg" alt="Spotify Clone: frontend development project" width="100%"></a>
-</td>
-</tr>
-<tr>
-<td width="50%" align="center">
-<a href="https://github.com/AbhijeetDhokne/catchhive"><img src="assets/project-catchhive.svg" alt="CatchHive: collaborative real-time canvas" width="100%"></a>
-</td>
-<td width="50%" align="center">
-<a href="https://github.com/AbhijeetDhokne?tab=repositories"><code>$ ls --all &gt; view every repository</code></a>
-</td>
-</tr>
-</table>
+| PROJECT | DESCRIPTION | STACK | REPO |
+|:--|:--|:--|:--|
+| **Canvora** | Collaborative real-time canvas platform | `React` `Vite` `Node.js` `Express` `MongoDB` `Docker` | [canvora](https://github.com/AbhijeetDhokne/canvora) |
+| **Hostmate** | Rental platform connecting owners and tenants | `EJS` `Node.js` `Express` `MongoDB` `Payments` | [Hostmate](https://github.com/AbhijeetDhokne/Hostmate) |
+| **WeatherApp** | Modern weather application | `React` `Vite` `JavaScript` `CSS` | [weatherapp](https://github.com/AbhijeetDhokne/weatherapp) |
+| **Spotify Clone** | Music streaming clone | `React` `Node.js` `Express` `Spotify API` | [spotify-clone](https://github.com/AbhijeetDhokne/spotify-clone) |
+| **CatchHive** | Real-time event tracking platform | `React` `Node.js` `Socket.io` `MongoDB` | [catchhive](https://github.com/AbhijeetDhokne/catchhive) |
 
-<img src="assets/divider.svg" alt="" width="100%">
+<sub><a href="https://github.com/AbhijeetDhokne?tab=repositories">$ ls --all &gt; view every repository</a></sub>
 
-<img src="assets/header-footer.svg" alt="06 disconnect" width="100%">
+---
+
+## `06 // disconnect`
 
 ```bash
 $ echo "Thanks for visiting my system."
@@ -201,8 +195,6 @@ CONNECTION_STATUS : ESTABLISHED
 SESSION_STATUS    : ACTIVE
 NEXT_MISSION      : BUILD SOMETHING IMPOSSIBLE
 ```
-
-<img src="assets/footer.svg" alt="Animated waveform footer. Connection established." width="100%">
 
 ```bash
 $ cat contact.conf
