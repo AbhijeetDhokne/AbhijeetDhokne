@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/hero-banner.svg" width="100%" alt="Abhijeet Dhokne — Full-Stack Developer"/>
+<img src="./assets/hero-banner.svg?v=2" width="100%" alt="Abhijeet Dhokne — Full-Stack Developer"/>
 
 </div>
 
