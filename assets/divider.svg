@@ -1,6 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="4" viewBox="0 0 1000 4" font-family="'JetBrains Mono','Fira Code',ui-monospace,SFMono-Regular,Consolas,'Courier New',monospace">
-<rect width="1000" height="4" fill="#070a07"/>
-<rect width="1000" height="1" fill="#39ff14" opacity="0.35"><animate attributeName="opacity" values="0.15;0.35;0.15" dur="3s" repeatCount="indefinite"/></rect>
-<rect x="0" y="1" width="200" height="2" fill="#39ff14" opacity="0.9"><animate attributeName="x" values="0;1000;0" dur="4s" repeatCount="indefinite"/></rect>
-<rect x="0.5" y="0.5" width="999" height="3" fill="none" stroke="#39ff14" stroke-opacity="0.25"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="16" viewBox="0 0 1000 16" font-family="'JetBrains Mono','Fira Code',ui-monospace,SFMono-Regular,Consolas,'Courier New',monospace">
+<rect width="1000" height="16" fill="#070a07"/>
+<path d="M0 8 L40 4 L80 12 L120 4 L160 12 L200 4 L240 12 L280 4 L320 12 L360 4 L400 12 L440 4 L480 12 L520 4 L560 12 L600 4 L640 12 L680 4 L720 12 L760 4 L800 12 L840 4 L880 12 L920 4 L960 12 L1000 4" fill="none" stroke="#39ff14" stroke-width="1" stroke-opacity="0.35"/>
+<circle cx="10" cy="8" r="1.5" fill="#39ff14" opacity="0.8"><animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/></circle>
+<circle cx="250" cy="8" r="1.5" fill="#39ff14" opacity="0.8"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite"/></circle>
+<circle cx="500" cy="8" r="1.5" fill="#39ff14" opacity="0.8"><animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/></circle>
+<circle cx="750" cy="8" r="1.5" fill="#39ff14" opacity="0.8"><animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/></circle>
+<circle cx="990" cy="8" r="1.5" fill="#39ff14" opacity="0.8"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite"/></circle>
+<rect x="0.5" y="0.5" width="999" height="15" fill="none" stroke="#39ff14" stroke-width="0.5" stroke-opacity="0.15"/>
 </svg>
