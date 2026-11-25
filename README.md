@@ -1,129 +1,86 @@
 <div align="center">
 
-<img src="./assets/hero-banner.svg?v=4" width="100%" alt="Abhijeet Dhokne — Software Developer"/>
+<img src="./assets/hero-banner.svg?v=5" width="100%" alt="Abhijeet Dhokne — Full stack engineering, backend systems, DevOps and applied AI" />
+
+<br />
+
+<a href="https://abhijeetdhokne.onrender.com/"><img src="https://img.shields.io/badge/Portfolio-Visit-0D1117?style=for-the-badge&logo=googlechrome&logoColor=A3FF6F" alt="Visit portfolio" /></a>
+<a href="https://github.com/AbhijeetDhokne"><img src="https://img.shields.io/badge/GitHub-Follow-0D1117?style=for-the-badge&logo=github&logoColor=A3FF6F" alt="Visit GitHub profile" /></a>
 
 </div>
 
----
+<br />
 
-## `01 / ABOUT`
+## About
+
+I’m a Computer Science student and software developer interested in building useful products and understanding the systems behind them. I work across the web stack, and I’m growing my skills in backend engineering, cloud infrastructure, and applied AI.
 
 ```text
-> identity:  Abhijeet Dhokne
-> role:      Computer Science student & Software Developer
-> interests: scalable products, system fundamentals, applied AI
-> mindset:   understand deeply, build pragmatically, improve continuously
+FOCUS     Full stack development · Backend systems · Applied AI
+LEARNING  Java · Databases · Docker · Cloud and CI/CD
+APPROACH  Understand deeply, build pragmatically, improve continuously
 ```
 
-I build practical web applications from interface to deployment. My engineering interests span MERN development, Java, databases, Docker, cloud infrastructure, CI/CD, and Applied AI Engineering.
+## Tech stack
 
----
+<p>
+  <strong>Languages</strong><br />
+  <img src="https://skillicons.dev/icons?i=java,js&theme=dark" alt="Java and JavaScript" />
+</p>
 
-## `02 / TECH STACK`
+<p>
+  <strong>Frontend</strong><br />
+  <img src="https://skillicons.dev/icons?i=html,css,react,bootstrap,tailwind&theme=dark" alt="HTML, CSS, React, Bootstrap and Tailwind CSS" />
+</p>
 
-### Programming Languages
-<div align="center">
-<img src="https://skillicons.dev/icons?i=java,js&theme=dark" alt="Java and JavaScript"/>
-</div>
+<p>
+  <strong>Backend and data</strong><br />
+  <img src="https://skillicons.dev/icons?i=nodejs,express,mongodb,mysql&theme=dark" alt="Node.js, Express, MongoDB and MySQL" />
+</p>
 
-### Frontend Development
-<div align="center">
-<img src="https://skillicons.dev/icons?i=html,css,react,bootstrap,tailwind&theme=dark" alt="HTML5, CSS3, React, Bootstrap and Tailwind CSS"/>
-</div>
+<p>
+  <strong>Infrastructure and tools</strong><br />
+  <img src="https://skillicons.dev/icons?i=docker,aws,jenkins,kubernetes,githubactions,git,github,postman,vscode,linux&theme=dark" alt="Docker, AWS, Jenkins, Kubernetes, GitHub Actions, Git, GitHub, Postman, VS Code and Linux" />
+</p>
 
-### Backend Development
-<div align="center">
-<img src="https://skillicons.dev/icons?i=nodejs,express&theme=dark" alt="Node.js and Express.js"/>
-</div>
-
-### Databases
-<div align="center">
-<img src="https://skillicons.dev/icons?i=mongodb,mysql&theme=dark" alt="MongoDB and MySQL"/>
-</div>
-
-### DevOps &amp; Cloud
-<div align="center">
-<img src="https://skillicons.dev/icons?i=docker,aws,jenkins,kubernetes,githubactions&theme=dark" alt="Docker, AWS, Jenkins, Kubernetes and GitHub Actions"/>
-</div>
-
-### Tools &amp; Platforms
-<div align="center">
-<img src="https://skillicons.dev/icons?i=git,github,postman,vscode,linux&theme=dark" alt="Git, GitHub, Postman, VS Code and Linux"/>
-</div>
-
----
-
-## `03 / GITHUB ANALYTICS`
+## GitHub activity
 
 <div align="center">
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=AbhijeetDhokne&amp;show_icons=true&amp;hide_border=true&amp;bg_color=0D1117&amp;title_color=A3FF6F&amp;icon_color=A3FF6F&amp;text_color=C9D1D9&amp;ring_color=A3FF6F" alt="Abhijeet Dhokne GitHub profile statistics"/>
-<img height="165" src="https://github-readme-streak-stats.herokuapp.com?user=AbhijeetDhokne&amp;hide_border=true&amp;background=0D1117&amp;ring=A3FF6F&amp;fire=B78AFF&amp;currStreakLabel=A3FF6F&amp;sideLabels=C9D1D9&amp;dates=8B949E" alt="Abhijeet Dhokne GitHub contribution streak"/>
 
-<br/>
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=AbhijeetDhokne&show_icons=true&hide_border=true&bg_color=0D1117&title_color=A3FF6F&icon_color=A3FF6F&text_color=C9D1D9&rank_icon=github" alt="GitHub profile statistics" />
+<img height="165" src="https://github-readme-streak-stats.herokuapp.com?user=AbhijeetDhokne&hide_border=true&background=0D1117&ring=A3FF6F&fire=B78AFF&currStreakLabel=A3FF6F&sideLabels=C9D1D9&dates=8B949E" alt="GitHub contribution streak" />
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AbhijeetDhokne&amp;layout=compact&amp;hide_border=true&amp;bg_color=0D1117&amp;title_color=A3FF6F&amp;text_color=C9D1D9" alt="Abhijeet Dhokne most used programming languages"/>
+<br />
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AbhijeetDhokne&layout=compact&hide_border=true&bg_color=0D1117&title_color=A3FF6F&text_color=C9D1D9" alt="Most used programming languages on GitHub" />
+
 </div>
 
----
-
-## `04 / CONTRIBUTION CITY`
+## Contribution district
 
 <div align="center">
-<img src="./assets/contribution-city.svg" width="100%" alt="Isometric cyberpunk contribution city concept"/>
+<img src="./assets/contribution-city.svg" width="100%" alt="Isometric cyberpunk city illustration inspired by software contributions" />
 </div>
 
-<sub>Static contribution-inspired concept. This visualization is not connected to live GitHub contribution data.</sub>
+<p align="center"><sub>A static illustration inspired by building and contributing. It does not represent live contribution data.</sub></p>
 
----
+## Coding journey
 
-## `05 / CODING JOURNEY`
-
-LeetCode statistics are not shown until a username is configured. Replace `YOUR_LEETCODE_USERNAME` below with the profile handle to enable the maintained service card.
+LeetCode stats can be added once a profile username is ready:
 
 ```markdown
 ![LeetCode Statistics](https://leetcard.jacoblin.cool/YOUR_LEETCODE_USERNAME?theme=dark&font=JetBrains%20Mono&ext=contest)
 ```
 
----
-
-## `06 / ACHIEVEMENTS`
-
-<div align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=AbhijeetDhokne&amp;theme=darkhub&amp;no-frame=true&amp;row=1&amp;column=6&amp;margin-w=8&amp;margin-h=8" alt="GitHub achievements and trophies"/>
-</div>
-
-No certifications or verified achievements are listed because no certificates or credentials were supplied.
-
----
-
-## `07 / CONNECT`
+## Connect
 
 <div align="center">
 
-[![Portfolio](https://img.shields.io/badge/PORTFOLIO-0D1117?style=for-the-badge&logo=googlechrome&logoColor=A3FF6F)](https://abhijeetdhokne.onrender.com/)
-[![GitHub](https://img.shields.io/badge/GITHUB-0D1117?style=for-the-badge&logo=github&logoColor=A3FF6F)](https://github.com/AbhijeetDhokne)
+<a href="https://abhijeetdhokne.onrender.com/"><img src="https://img.shields.io/badge/Portfolio-0D1117?style=for-the-badge&logo=googlechrome&logoColor=A3FF6F" alt="Portfolio" /></a>
+<a href="https://github.com/AbhijeetDhokne"><img src="https://img.shields.io/badge/GitHub-0D1117?style=for-the-badge&logo=github&logoColor=A3FF6F" alt="GitHub" /></a>
+
+<br /><br />
+
+<sub>Build with clarity. Ship with intent.</sub>
 
 </div>
-
-LinkedIn and email links are intentionally omitted until verified URLs are available.
-
----
-
-## `08 / FOOTER`
-
-<div align="center">
-
-> `Build with clarity. Ship with intent.`
-
-<sub>Thanks for visiting.</sub>
-
-</div>
-
-<!--
-CONFIGURATION
-GitHub username: AbhijeetDhokne
-Portfolio URL: https://abhijeetdhokne.onrender.com/
-LeetCode username: replace YOUR_LEETCODE_USERNAME in the card above.
-LinkedIn URL: add only after verification.
-Email: add only after verification.
--->
