@@ -2,7 +2,7 @@
 
 <img src="./assets/hero-banner.svg?v=5" width="100%" alt="Abhijeet Dhokne — Full stack engineering, backend systems, DevOps and applied AI" />
 
-<br />
+<br /><br />
 
 <a href="https://abhijeetdhokne.onrender.com/"><img src="https://img.shields.io/badge/Portfolio-Visit-0D1117?style=for-the-badge&logo=googlechrome&logoColor=A3FF6F" alt="Visit portfolio" /></a>
 <a href="https://github.com/AbhijeetDhokne"><img src="https://img.shields.io/badge/GitHub-Follow-0D1117?style=for-the-badge&logo=github&logoColor=A3FF6F" alt="Visit GitHub profile" /></a>
@@ -13,13 +13,7 @@
 
 ## About
 
-I’m a Computer Science student and software developer interested in building useful products and understanding the systems behind them. I work across the web stack, and I’m growing my skills in backend engineering, cloud infrastructure, and applied AI.
-
-```text
-FOCUS     Full stack development · Backend systems · Applied AI
-LEARNING  Java · Databases · Docker · Cloud and CI/CD
-APPROACH  Understand deeply, build pragmatically, improve continuously
-```
+I'm a Software Developer passionate about building scalable applications, developing efficient software solutions, and solving real-world problems through technology. I enjoy working across the full development lifecycle, from designing intuitive user interfaces to building robust backend systems. My interests include full-stack development, Data Structures and Algorithms, cloud computing, DevOps, and emerging AI technologies. I continuously strive to strengthen my technical skills, write clean and maintainable code, and build reliable software that delivers meaningful impact.
 
 ## Tech stack
 
@@ -48,7 +42,7 @@ APPROACH  Understand deeply, build pragmatically, improve continuously
 <div align="center">
 
 <img height="165" src="https://github-readme-stats.vercel.app/api?username=AbhijeetDhokne&show_icons=true&hide_border=true&bg_color=0D1117&title_color=A3FF6F&icon_color=A3FF6F&text_color=C9D1D9&rank_icon=github" alt="GitHub profile statistics" />
-<img height="165" src="https://github-readme-streak-stats.herokuapp.com?user=AbhijeetDhokne&hide_border=true&background=0D1117&ring=A3FF6F&fire=B78AFF&currStreakLabel=A3FF6F&sideLabels=C9D1D9&dates=8B949E" alt="GitHub contribution streak" />
+<img height="165" src="https://github-readme-streak-stats.herokuapp.com?user=AbhijeetDhokne&hide_border=true&background=0D1117&ring=A3FF6F&fire=B78AFF&currStreakLabel=A3FF6F&currStreakNum=FFFFFF&sideLabels=C9D1D9&sideNums=FFFFFF&dates=8B949E" alt="GitHub contribution streak" />
 
 <br />
 
@@ -72,21 +66,11 @@ APPROACH  Understand deeply, build pragmatically, improve continuously
 
 ## Coding journey
 
-LeetCode stats can be added once a profile username is ready:
-
-```markdown
-![LeetCode Statistics](https://leetcard.jacoblin.cool/YOUR_LEETCODE_USERNAME?theme=dark&font=JetBrains%20Mono&ext=contest)
-```
-
-## Connect
-
 <div align="center">
 
-<a href="https://abhijeetdhokne.onrender.com/"><img src="https://img.shields.io/badge/Portfolio-0D1117?style=for-the-badge&logo=googlechrome&logoColor=A3FF6F" alt="Portfolio" /></a>
-<a href="https://github.com/AbhijeetDhokne"><img src="https://img.shields.io/badge/GitHub-0D1117?style=for-the-badge&logo=github&logoColor=A3FF6F" alt="GitHub" /></a>
-
-<br /><br />
-
-<sub>Build with clarity. Ship with intent.</sub>
+<a href="https://leetcode.com/u/AbhijeetDhokne/">
+  <img src="https://leetcard.jacoblin.cool/AbhijeetDhokne?theme=dark&amp;font=JetBrains%20Mono&amp;ext=contest" alt="LeetCode statistics for AbhijeetDhokne" width="100%" />
+</a>
 
 </div>
+
