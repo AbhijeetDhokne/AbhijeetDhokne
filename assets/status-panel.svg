@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="110" viewBox="0 0 900 110" role="img" aria-label="System status panel">
-<defs><linearGradient id="b" x2="1"><stop stop-color="#39ff14" stop-opacity=".55"/><stop offset=".5" stop-color="#354638"/><stop offset="1" stop-color="#9a70ff" stop-opacity=".55"/></linearGradient></defs>
-<rect x="1" y="1" width="898" height="108" rx="9" fill="#090e0b" stroke="url(#b)"/><path d="M300 16V94M600 16V94" stroke="#26362b"/>
-<g font-family="monospace"><text x="24" y="31" font-size="10" fill="#627569">SYSTEM_STATUS</text><circle cx="28" cy="62" r="5" fill="#39ff14"><animate attributeName="opacity" values="1;.35;1" dur="2s" repeatCount="indefinite"/></circle><text x="44" y="67" font-size="17" fill="#d6ffd0">OPERATIONAL</text>
-<text x="324" y="31" font-size="10" fill="#627569">CURRENT_FOCUS</text><text x="324" y="64" font-size="16" fill="#b8c8bc">FULL STACK / DEVOPS</text><text x="324" y="82" font-size="10" fill="#718477">building reliable systems</text>
-<text x="624" y="31" font-size="10" fill="#627569">RESEARCH_TRACK</text><text x="624" y="64" font-size="16" fill="#c3adff">LLM / RAG</text><text x="624" y="82" font-size="10" fill="#718477">exploration in progress</text></g>
-<path d="M24 94H276" stroke="#39ff14" stroke-opacity=".45"/><path d="M324 94H576" stroke="#39ff14" stroke-opacity=".25"/><path d="M624 94H876" stroke="#9a70ff" stroke-opacity=".35"/>
-</svg>

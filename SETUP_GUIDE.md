@@ -16,11 +16,7 @@ Copy the files while preserving this structure:
 AbhijeetDhokne/
 ├── README.md
 ├── assets/
-│   ├── hero-banner.svg
-│   ├── section-divider.svg
-│   ├── terminal-window.svg
-│   ├── status-panel.svg
-│   └── footer-signal.svg
+│   └── hero-banner.svg
 └── .github/
     └── workflows/
         └── snake.yml
@@ -62,7 +58,7 @@ Note: The workflow produces SVG output, not a GIF. The README therefore uses the
 After pushing:
 - Open each file in the repository to confirm it exists.
 - Open the Actions run and confirm it completed successfully.
-- Open the profile README and check that the hero, dividers, status panel, and footer render.
+- Open the profile README and check that the hero banner renders.
 - If the snake is missing, confirm the `output` branch exists and contains the two generated SVG files.
 
 ## 6. External widgets and limitations
