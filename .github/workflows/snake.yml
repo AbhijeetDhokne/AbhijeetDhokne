@@ -1,35 +1,51 @@
 name: Generate Contribution Snake
 
 on:
+  # Daily at 00:00 UTC
   schedule:
     - cron: "0 0 * * *"
+
+  # Manual trigger from the Actions tab
   workflow_dispatch:
 
+  # Regenerate when the workflow itself changes
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/snake.yml"
+
+# Least privilege: the job only needs to push to the "output" branch.
 permissions:
   contents: write
 
-jobs:
-  generate-snake:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: false
+concurrency:
+  group: snake-generation
+  cancel-in-progress: true
 
-      - name: Generate Contribution Snake
+jobs:
+  generate:
+    name: Generate snake assets
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      # Builds the SVG (light + dark) and the GIF from the contribution graph.
+      - name: Generate snake from contribution graph
         uses: Platane/snk@v3
         id: snake
         with:
-          github_user_name: AbhijeetDhokne
+          github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg
-            dist/github-contribution-grid-snake.gif
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#39ff14
+            dist/github-contribution-grid-snake.gif?palette=github-dark&color_snake=#39ff14
 
-      - name: Publish to output branch
-        uses: crazy-max/ghaction-github-pages@v4
+      # Publishes dist/ to the "output" branch (created automatically).
+      - name: Publish assets to output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
-          commit_message: "feat: regenerate contribution snake"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
