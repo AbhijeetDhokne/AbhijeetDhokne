@@ -27,8 +27,8 @@
       50% { opacity: 1; transform: translateX(18px); }
     }
     @keyframes nameGlow {
-      0%, 100% { filter: drop-shadow(0 0 0 rgba(91,255,132,0)); }
-      50% { filter: drop-shadow(0 0 8px rgba(91,255,132,.32)); }
+      0%, 100% { filter: drop-shadow(0 0 0 rgba(255,138,50,0)); }
+      50% { filter: drop-shadow(0 0 8px rgba(32,205,176,.30)); }
     }
     @keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
     @media (prefers-reduced-motion: reduce) {
@@ -38,17 +38,17 @@
 
   <defs>
     <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#39ff72"/>
-      <stop offset=".55" stop-color="#263f35"/>
-      <stop offset="1" stop-color="#9b6cff"/>
+      <stop offset="0" stop-color="#ff8a32"/>
+      <stop offset=".55" stop-color="#155e59"/>
+      <stop offset="1" stop-color="#20cdb0"/>
     </linearGradient>
     <linearGradient id="nameGlow" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#f4fff5"/>
-      <stop offset=".72" stop-color="#d9ffe0"/>
-      <stop offset="1" stop-color="#a9ffc0"/>
+      <stop offset="0" stop-color="#fff0d2"/>
+      <stop offset=".72" stop-color="#ffe0b0"/>
+      <stop offset="1" stop-color="#72f0d4"/>
     </linearGradient>
     <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <path d="M24 0H0V24" fill="none" stroke="#8affad" stroke-opacity=".055" stroke-width="1"/>
+      <path d="M24 0H0V24" fill="none" stroke="#78d9c6" stroke-opacity=".055" stroke-width="1"/>
     </pattern>
     <pattern id="scan" width="3" height="6" patternUnits="userSpaceOnUse">
       <path d="M0 0H3" stroke="#d4ffe0" stroke-opacity=".025" stroke-width="1"/>
@@ -68,12 +68,12 @@
   <rect x="1" y="1" width="1550" height="424" rx="17" fill="url(#scan)"/>
   <rect x="15" y="15" width="1522" height="396" rx="14" fill="none" stroke="url(#edge)" stroke-width="2.2"/>
   <g class="moving-divider">
-    <path d="M16 272H1536" stroke="#52ff7a" stroke-opacity=".32" stroke-width="1.2"/>
-    <path d="M16 274H1536" stroke="#52ff7a" stroke-opacity=".08" stroke-width="5"/>
+    <path d="M16 272H1536" stroke="#20cdb0" stroke-opacity=".32" stroke-width="1.2"/>
+    <path d="M16 274H1536" stroke="#20cdb0" stroke-opacity=".08" stroke-width="5"/>
   </g>
 
   <!-- subtle ambient details -->
-  <g fill="#7aff9b" opacity=".23">
+  <g fill="#ffb36b" opacity=".23">
     <circle cx="1340" cy="54" r="1.8"/><circle cx="1460" cy="310" r="1.5"/>
     <circle cx="119" cy="386" r="1.3"/><circle cx="1010" cy="20" r="1.2"/>
     <circle cx="748" cy="362" r="1.4"/><circle cx="1510" cy="180" r="1.3"/>
@@ -81,43 +81,43 @@
 
   <!-- system log -->
   <g font-family="Consolas, 'Courier New', monospace" font-size="16" letter-spacing=".3">
-    <text x="68" y="70" fill="#5dff83">[ OK ]</text>
-    <text x="134" y="70" fill="#9bb4a3"> initializing runtime environment</text>
-    <text x="68" y="96" fill="#5dff83">[ OK ]</text>
-    <text x="134" y="96" fill="#9bb4a3"> mounting application services</text>
-    <text x="68" y="122" fill="#5dff83">[ OK ]</text>
-    <text x="134" y="122" fill="#9bb4a3"> establishing system architecture</text>
-    <text x="68" y="148" fill="#5dff83">[ OK ]</text>
-    <text x="134" y="148" fill="#9bb4a3"> loading development environment</text>
-    <text x="68" y="174" fill="#a78bfa">[ RUN ]</text>
-    <text x="145" y="174" fill="#a9c4b1"> building ideas into software</text>
+    <text x="68" y="70" fill="#ff9a45">[ OK ]</text>
+    <text x="134" y="70" fill="#d5c7a8"> initializing runtime environment</text>
+    <text x="68" y="96" fill="#ff9a45">[ OK ]</text>
+    <text x="134" y="96" fill="#d5c7a8"> mounting application services</text>
+    <text x="68" y="122" fill="#ff9a45">[ OK ]</text>
+    <text x="134" y="122" fill="#d5c7a8"> establishing system architecture</text>
+    <text x="68" y="148" fill="#ff9a45">[ OK ]</text>
+    <text x="134" y="148" fill="#d5c7a8"> loading development environment</text>
+    <text x="68" y="174" fill="#20d6b5">[ RUN ]</text>
+    <text x="145" y="174" fill="#d9d0b8"> building ideas into software</text>
   </g>
 
   <!-- identity -->
   <g font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="1.4">
-    <text x="68" y="278" font-size="58" fill="#64ff8b" opacity=".24" transform="translate(3 0)">ABHIJEET DHOKNE</text>
+    <text x="68" y="278" font-size="58" fill="#ff9a45" opacity=".24" transform="translate(3 0)">ABHIJEET DHOKNE</text>
     <text class="name-glow" x="68" y="275" font-size="58" fill="url(#nameGlow)">ABHIJEET DHOKNE</text>
   </g>
-  <path d="M70 294H111" stroke="#4dff78" stroke-width="3" filter="url(#tinyGlow)"/>
+  <path d="M70 294H111" stroke="#ff8a32" stroke-width="3" filter="url(#tinyGlow)"/>
 
   <!-- designation -->
-  <text x="70" y="337" fill="#c7e8d0" font-family="Consolas, 'Courier New', monospace"
+  <text x="70" y="337" fill="#f4dfbd" font-family="Consolas, 'Courier New', monospace"
         font-size="19" letter-spacing="1.1">SOFTWARE DEVELOPER</text>
-  <path d="M70 354H440" stroke="#4dff78" stroke-opacity=".35" stroke-width="1"/>
+  <path d="M70 354H440" stroke="#ff8a32" stroke-opacity=".35" stroke-width="1"/>
 
   <!-- right-side abstract circuit / system architecture -->
-  <g class="circuit" fill="none" stroke="#64806d" stroke-width="2.2" stroke-opacity=".62">
+  <g class="circuit" fill="none" stroke="#527d75" stroke-width="2.2" stroke-opacity=".62">
     <path d="M980 80H1080L1120 112H1248L1280 82H1468"/>
     <path d="M1030 150H1120L1150 178H1268L1300 150H1468"/>
     <path d="M970 228H1068L1102 194H1230L1264 228H1440"/>
     <path d="M1080 296H1170L1200 270H1320L1350 296H1465"/>
   </g>
-  <g fill="#08100c" stroke="#57ff80" stroke-width="2">
+  <g fill="#08100c" stroke="#20d6b5" stroke-width="2">
     <circle class="pulse-dot" cx="980" cy="80" r="5"/><circle class="pulse-dot delay-1" cx="1468" cy="82" r="5"/>
     <circle class="pulse-dot delay-2" cx="1030" cy="150" r="5"/><circle class="pulse-dot delay-3" cx="1468" cy="150" r="5"/>
     <circle class="pulse-dot delay-1" cx="970" cy="228" r="5"/><circle class="pulse-dot delay-2" cx="1440" cy="228" r="5"/>
   </g>
-  <g fill="#45ff78" filter="url(#softGlow)">
+  <g fill="#ff8a32" filter="url(#softGlow)">
     <!-- Each light follows the geometry of its own solid circuit trace. -->
     <circle r="5" class="trace-light trace-1">
       <animateMotion dur="7.2s" repeatCount="indefinite" rotate="auto"
@@ -136,14 +136,14 @@
         path="M1080 296 H1170 L1200 270 H1320 L1350 296 H1465"/>
     </circle>
   </g>
-  <g fill="#8ca99a" font-family="Consolas, 'Courier New', monospace" font-size="12" text-anchor="end" letter-spacing=".7">
+  <g fill="#c8b894" font-family="Consolas, 'Courier New', monospace" font-size="12" text-anchor="end" letter-spacing=".7">
     <text x="1490" y="333">SYS.STATUS</text>
-    <text x="1490" y="354" fill="#62ff88">OPERATIONAL</text>
+    <text x="1490" y="354" fill="#36e0c0">OPERATIONAL</text>
     <text x="1490" y="375">ACCESS.LEVEL / DEVELOPER</text>
   </g>
 
   <!-- bottom signature -->
-  <text x="70" y="390" fill="#60786a" font-family="Consolas, 'Courier New', monospace"
+  <text x="70" y="390" fill="#a88d6d" font-family="Consolas, 'Courier New', monospace"
         font-size="13" letter-spacing=".7">$ build --reliable --scalable --continuously</text>
   
 </svg>
