@@ -56,13 +56,19 @@ APPROACH  Understand deeply, build pragmatically, improve continuously
 
 </div>
 
-## Contribution district
+## Contribution snake
 
 <div align="center">
-<img src="./assets/contribution-city.svg" width="100%" alt="Isometric cyberpunk city illustration inspired by software contributions" />
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/AbhijeetDhokne/AbhijeetDhokne/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/AbhijeetDhokne/AbhijeetDhokne/output/github-contribution-grid-snake.svg" />
+  <img alt="Animated snake moving across my GitHub contribution grid" src="https://raw.githubusercontent.com/AbhijeetDhokne/AbhijeetDhokne/output/github-contribution-grid-snake-dark.svg" width="100%" />
+</picture>
+
 </div>
 
-<p align="center"><sub>A static illustration inspired by building and contributing. It does not represent live contribution data.</sub></p>
+<p align="center"><sub>Generated from my GitHub contribution graph and refreshed automatically each day.</sub></p>
 
 ## Coding journey
 
