@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Futuristic isometric contribution city</title>
+  <desc id="desc">A static pixel-inspired cyber city representing code and contribution activity.</desc>
+  <rect width="1200" height="520" rx="12" fill="#0D1117"/>
+  <g transform="translate(600 250)" stroke="#9CA3AF" stroke-opacity=".12">
+    <path d="M-420 80L0-130 420 80 0 290Z" fill="#11161D"/>
+    <path d="M-420 80L0 290 420 80M-315 27L105 237M-210-25L210 185M-105-78L315 132M105-78L-315 132M210-25L-210 185M315 27L-105 237" fill="none"/>
+  </g>
+  <g transform="translate(600 170)">
+    <g transform="translate(-280 150)">
+      <path d="M0 0L70-35V75L0 110Z" fill="#151B22" stroke="#A3FF6F" stroke-opacity=".6"/>
+      <path d="M70-35L140 0V110L70 75Z" fill="#1A2028" stroke="#B78AFF" stroke-opacity=".45"/>
+      <path d="M0 0L70 35 140 0 70-35Z" fill="#202731" stroke="#A3FF6F" stroke-opacity=".35"/>
+      <g fill="#A3FF6F">
+        <rect x="15" y="22" width="12" height="18" transform="skewY(-26)"/><rect x="42" y="35" width="12" height="18" transform="skewY(-26)"/>
+      </g>
+    </g>
+    <g transform="translate(-150 70)">
+      <path d="M0 0L85-43V145L0 188Z" fill="#151B22" stroke="#A3FF6F" stroke-opacity=".75"/>
+      <path d="M85-43L170 0V145L85 102Z" fill="#1A2028" stroke="#B78AFF" stroke-opacity=".55"/>
+      <path d="M0 0L85 43 170 0 85-43Z" fill="#202731" stroke="#A3FF6F" stroke-opacity=".45"/>
+      <g fill="#B78AFF" opacity=".9">
+        <rect x="18" y="22" width="15" height="22" transform="skewY(-26)"/><rect x="50" y="38" width="15" height="22" transform="skewY(-26)"/>
+        <rect x="18" y="68" width="15" height="22" transform="skewY(-26)"/><rect x="50" y="84" width="15" height="22" transform="skewY(-26)"/>
+      </g>
+    </g>
+    <g transform="translate(35 100)">
+      <path d="M0 0L78-39V118L0 157Z" fill="#151B22" stroke="#B78AFF" stroke-opacity=".65"/>
+      <path d="M78-39L156 0V118L78 79Z" fill="#1A2028" stroke="#A3FF6F" stroke-opacity=".5"/>
+      <path d="M0 0L78 39 156 0 78-39Z" fill="#202731" stroke="#B78AFF" stroke-opacity=".45"/>
+      <g fill="#A3FF6F">
+        <rect x="16" y="20" width="14" height="20" transform="skewY(-26)"/><rect x="45" y="35" width="14" height="20" transform="skewY(-26)"/>
+      </g>
+    </g>
+    <g transform="translate(210 145)">
+      <path d="M0 0L58-29V72L0 101Z" fill="#151B22" stroke="#A3FF6F" stroke-opacity=".55"/>
+      <path d="M58-29L116 0V72L58 43Z" fill="#1A2028" stroke="#B78AFF" stroke-opacity=".45"/>
+      <path d="M0 0L58 29 116 0 58-29Z" fill="#202731" stroke="#A3FF6F" stroke-opacity=".35"/>
+    </g>
+    <g transform="translate(205 -5)">
+      <path d="M0 0L62-31V82L0 113Z" fill="#151B22" stroke="#B78AFF" stroke-opacity=".6"/>
+      <path d="M62-31L124 0V82L62 51Z" fill="#1A2028" stroke="#A3FF6F" stroke-opacity=".5"/>
+      <path d="M0 0L62 31 124 0 62-31Z" fill="#202731" stroke="#B78AFF" stroke-opacity=".4"/>
+    </g>
+  </g>
+  <g fill="#A3FF6F" font-family="JetBrains Mono,Consolas,monospace" font-size="14" letter-spacing="2">
+    <text x="70" y="55">CONTRIBUTION DISTRICT</text>
+  </g>
+  <g fill="#9CA3AF" font-family="JetBrains Mono,Consolas,monospace" font-size="12">
+    <text x="70" y="476">CONTRIBUTION-INSPIRED CITY / STATIC CONCEPT</text>
+  </g>
+</svg>
