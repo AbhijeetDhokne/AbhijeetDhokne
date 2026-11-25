@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="34" viewBox="0 0 1200 34" role="img" aria-label="Animated circuit section divider">
+<defs><linearGradient id="line" x2="1"><stop stop-color="#39ff14" stop-opacity="0"/><stop offset=".22" stop-color="#39ff14" stop-opacity=".85"/><stop offset=".72" stop-color="#39ff14" stop-opacity=".35"/><stop offset="1" stop-color="#a58aff" stop-opacity="0"/></linearGradient><filter id="g"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<path d="M0 17H1200" stroke="#26352b" stroke-width="1"/><path d="M0 17H1200" stroke="url(#line)" stroke-width="2"/>
+<path d="M40 17h140l12-8h90m676 0h90l12 8h100" fill="none" stroke="#39ff14" stroke-opacity=".48"/>
+<path d="M180 17h180m360 0h300" stroke="#39ff14" stroke-width="2" stroke-dasharray="28 360" filter="url(#g)"><animate attributeName="stroke-dashoffset" from="388" to="0" dur="4s" repeatCount="indefinite"/></path>
+<g fill="#0a100c" stroke="#39ff14" stroke-width="1"><circle cx="40" cy="17" r="3"/><circle cx="180" cy="17" r="3"/><circle cx="1020" cy="17" r="3"/><circle cx="1160" cy="17" r="3"/></g>
+<path d="M585 17l15-8 15 8-15 8z" fill="#0b100d" stroke="#a58aff" stroke-opacity=".8"/><circle cx="600" cy="17" r="2" fill="#39ff14"><animate attributeName="r" values="2;4;2" dur="2s" repeatCount="indefinite"/></circle>
+</svg>
