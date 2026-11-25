@@ -1,4 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1552" height="426" viewBox="0 0 1552 426">
+
+  <style>
+
+    .moving-divider {
+      animation: dividerFloat 7.2s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    @keyframes dividerFloat {
+      0%, 100% { transform: translateY(-252px); }
+      50% { transform: translateY(138px); }
+    }
+    .pulse-dot { animation: pulse 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .pulse-dot.delay-1 { animation-delay: .5s; }
+    .pulse-dot.delay-2 { animation-delay: 1s; }
+    .pulse-dot.delay-3 { animation-delay: 1.5s; }
+        .circuit { stroke-dasharray: none; stroke-linecap: round; stroke-linejoin: round; }
+    .name-glow { animation: nameGlow 4s ease-in-out infinite; }
+    .ambient { animation: drift 7s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes pulse {
+      0%, 100% { opacity: .45; transform: scale(.8); }
+      50% { opacity: 1; transform: scale(1.45); }
+    }
+    @keyframes signal {
+      0%, 100% { opacity: .35; transform: translateX(0); }
+      50% { opacity: 1; transform: translateX(18px); }
+    }
+    @keyframes nameGlow {
+      0%, 100% { filter: drop-shadow(0 0 0 rgba(91,255,132,0)); }
+      50% { filter: drop-shadow(0 0 8px rgba(91,255,132,.32)); }
+    }
+    @keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+
   <defs>
     <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#39ff72"/>
@@ -30,8 +67,10 @@
   <rect x="1" y="1" width="1550" height="424" rx="17" fill="url(#grid)"/>
   <rect x="1" y="1" width="1550" height="424" rx="17" fill="url(#scan)"/>
   <rect x="15" y="15" width="1522" height="396" rx="14" fill="none" stroke="url(#edge)" stroke-width="2.2"/>
-  <path d="M16 272H1536" stroke="#52ff7a" stroke-opacity=".32" stroke-width="1.2"/>
-  <path d="M16 274H1536" stroke="#52ff7a" stroke-opacity=".08" stroke-width="5"/>
+  <g class="moving-divider">
+    <path d="M16 272H1536" stroke="#52ff7a" stroke-opacity=".32" stroke-width="1.2"/>
+    <path d="M16 274H1536" stroke="#52ff7a" stroke-opacity=".08" stroke-width="5"/>
+  </g>
 
   <!-- subtle ambient details -->
   <g fill="#7aff9b" opacity=".23">
@@ -57,7 +96,7 @@
   <!-- identity -->
   <g font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="1.4">
     <text x="68" y="278" font-size="58" fill="#64ff8b" opacity=".24" transform="translate(3 0)">ABHIJEET DHOKNE</text>
-    <text x="68" y="275" font-size="58" fill="url(#nameGlow)">ABHIJEET DHOKNE</text>
+    <text class="name-glow" x="68" y="275" font-size="58" fill="url(#nameGlow)">ABHIJEET DHOKNE</text>
   </g>
   <path d="M70 294H111" stroke="#4dff78" stroke-width="3" filter="url(#tinyGlow)"/>
 
@@ -67,23 +106,35 @@
   <path d="M70 354H440" stroke="#4dff78" stroke-opacity=".35" stroke-width="1"/>
 
   <!-- right-side abstract circuit / system architecture -->
-  <g fill="none" stroke="#526e5d" stroke-width="2" stroke-opacity=".56">
+  <g class="circuit" fill="none" stroke="#64806d" stroke-width="2.2" stroke-opacity=".62">
     <path d="M980 80H1080L1120 112H1248L1280 82H1468"/>
     <path d="M1030 150H1120L1150 178H1268L1300 150H1468"/>
     <path d="M970 228H1068L1102 194H1230L1264 228H1440"/>
     <path d="M1080 296H1170L1200 270H1320L1350 296H1465"/>
-    <path d="M1180 80H1240L1262 96H1338L1360 80H1468" stroke-opacity=".25"/>
   </g>
   <g fill="#08100c" stroke="#57ff80" stroke-width="2">
-    <circle cx="980" cy="80" r="5"/><circle cx="1468" cy="82" r="5"/>
-    <circle cx="1030" cy="150" r="5"/><circle cx="1468" cy="150" r="5"/>
-    <circle cx="970" cy="228" r="5"/><circle cx="1440" cy="228" r="5"/>
+    <circle class="pulse-dot" cx="980" cy="80" r="5"/><circle class="pulse-dot delay-1" cx="1468" cy="82" r="5"/>
+    <circle class="pulse-dot delay-2" cx="1030" cy="150" r="5"/><circle class="pulse-dot delay-3" cx="1468" cy="150" r="5"/>
+    <circle class="pulse-dot delay-1" cx="970" cy="228" r="5"/><circle class="pulse-dot delay-2" cx="1440" cy="228" r="5"/>
   </g>
   <g fill="#45ff78" filter="url(#softGlow)">
-    <rect x="1344" y="77" width="30" height="6" rx="3"/>
-    <rect x="1238" y="176" width="31" height="6" rx="3"/>
-    <rect x="990" y="224" width="32" height="6" rx="3"/>
-    <rect x="1380" y="224" width="32" height="6" rx="3"/>
+    <!-- Each light follows the geometry of its own solid circuit trace. -->
+    <circle r="5" class="trace-light trace-1">
+      <animateMotion dur="7.2s" repeatCount="indefinite" rotate="auto"
+        path="M980 80 H1080 L1120 112 H1248 L1280 82 H1468"/>
+    </circle>
+    <circle r="5" class="trace-light trace-2">
+      <animateMotion dur="8.4s" begin="-2.1s" repeatCount="indefinite" rotate="auto"
+        path="M1030 150 H1120 L1150 178 H1268 L1300 150 H1468"/>
+    </circle>
+    <circle r="5" class="trace-light trace-3">
+      <animateMotion dur="7.8s" begin="-3.4s" repeatCount="indefinite" rotate="auto"
+        path="M970 228 H1068 L1102 194 H1230 L1264 228 H1440"/>
+    </circle>
+    <circle r="5" class="trace-light trace-4">
+      <animateMotion dur="9s" begin="-1.2s" repeatCount="indefinite" rotate="auto"
+        path="M1080 296 H1170 L1200 270 H1320 L1350 296 H1465"/>
+    </circle>
   </g>
   <g fill="#8ca99a" font-family="Consolas, 'Courier New', monospace" font-size="12" text-anchor="end" letter-spacing=".7">
     <text x="1490" y="333">SYS.STATUS</text>
@@ -94,6 +145,5 @@
   <!-- bottom signature -->
   <text x="70" y="390" fill="#60786a" font-family="Consolas, 'Courier New', monospace"
         font-size="13" letter-spacing=".7">$ build --reliable --scalable --continuously</text>
-  <rect x="70" y="399" width="10" height="14" rx="1" fill="#4dff78" filter="url(#tinyGlow)"/>
-  <path d="M16 410H1536" stroke="#ffffff" stroke-opacity=".035"/>
+  
 </svg>
