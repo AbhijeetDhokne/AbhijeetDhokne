@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/hero-banner.svg?v=2" width="100%" alt="Abhijeet Dhokne — Full-Stack Developer"/>
+<img src="./assets/hero-banner.svg?v=4" width="100%" alt="Abhijeet Dhokne — Software Developer"/>
 
 </div>
 
@@ -10,7 +10,7 @@
 
 ```text
 > identity:  Abhijeet Dhokne
-> role:      Computer Science student & full-stack developer
+> role:      Computer Science student & Software Developer
 > interests: scalable products, system fundamentals, applied AI
 > mindset:   understand deeply, build pragmatically, improve continuously
 ```

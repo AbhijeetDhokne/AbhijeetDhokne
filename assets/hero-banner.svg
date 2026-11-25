@@ -1,10 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
-  <title id="title">Abhijeet Dhokne - Full-Stack Developer</title>
-  <desc id="desc">A dark futuristic terminal interface with neon green and purple grid details.</desc>
+  <title id="title">Abhijeet Dhokne - Software Developer</title>
+  <desc id="desc">A dark futuristic terminal interface with neon green and purple details.</desc>
   <defs>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M40 0H0V40" fill="none" stroke="#A3FF6F" stroke-opacity=".10" stroke-width="1"/>
-    </pattern>
     <linearGradient id="line" x1="0" x2="1">
       <stop stop-color="#A3FF6F" stop-opacity="0"/>
       <stop offset=".5" stop-color="#A3FF6F"/>
@@ -12,9 +9,6 @@
     </linearGradient>
   </defs>
   <rect width="1200" height="420" rx="12" fill="#0D1117"/>
-  <rect width="1200" height="420" fill="url(#grid)" opacity=".75"/>
-  <path d="M0 70H1200M0 350H1200" stroke="#A3FF6F" stroke-opacity=".10"/>
-  <path d="M80 0V420M1120 0V420" stroke="#B78AFF" stroke-opacity=".08"/>
 
   <g fill="none" stroke="#A3FF6F" stroke-width="2" opacity=".9">
     <path d="M75 92V67H100"/>
@@ -29,7 +23,7 @@
     <text fill="#A3FF6F" font-family="JetBrains Mono,Consolas,monospace" font-size="16">&gt; whoami</text>
     <text y="72" fill="#FFFFFF" font-family="Inter,Segoe UI,sans-serif" font-size="62" font-weight="800">ABHIJEET DHOKNE</text>
     <rect y="92" width="760" height="2" fill="url(#line)" opacity=".8"/>
-    <text y="132" fill="#C9D1D9" font-family="JetBrains Mono,Consolas,monospace" font-size="18" letter-spacing="3">FULL-STACK DEVELOPER</text>
+    <text y="132" fill="#C9D1D9" font-family="JetBrains Mono,Consolas,monospace" font-size="18" letter-spacing="3">SOFTWARE DEVELOPER</text>
     <text y="166" fill="#9CA3AF" font-family="JetBrains Mono,Consolas,monospace" font-size="15">MERN  /  APPLIED AI ENGINEERING  /  DEVOPS  /  CLOUD</text>
   </g>
 
