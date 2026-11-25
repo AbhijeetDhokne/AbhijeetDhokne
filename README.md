@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=30&duration=3600&pause=1200&color=39FF14&background=070A07&center=true&vCenter=true&repeat=true&width=900&height=80&lines=Abhijeet+Dhokne;Full+Stack+Developer;Backend+Engineering;DevOps+%26+Cloud+Infrastructure;Exploring+Applied+AI" alt="Abhijeet Dhokne - Full Stack Developer">
+<img src="assets/hero-banner.svg" alt="Abhijeet Dhokne - Engineering Interface" width="100%">
+
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=3600&pause=1200&color=39FF14&background=070A07&center=true&vCenter=true&repeat=true&width=900&height=50&lines=Full+Stack+Developer;Backend+Engineering;DevOps+%26+Cloud+Infrastructure;Exploring+Applied+AI" alt="Abhijeet Dhokne - Full Stack Developer">
 
 </div>
 
